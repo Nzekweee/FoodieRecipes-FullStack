@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="form__container form__siginup__container">
-    <div class="nav__logo flex-row div-center"> <img src="/assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></div>
+    <div class="nav__logo flex-row div-center"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></div>
     <h3>Create an account</h3>
     <div class="alert__message error">
         This is an error message
@@ -67,7 +67,7 @@
       <button type="submit">Sign Up</button>
     </form>
     <div class="signin-link">
-      <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+      <p>Already have an account? <a href="sign-in.php">Sign In</a></p>
     </div>
   </div>
   <script type="module" src="/javascript/main.js"></script>

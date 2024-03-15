@@ -11,7 +11,7 @@
 <body>
 <main class="form__signin flex-row div-center">
     <div class="form__container ">
-        <div class="nav__logo flex-row div-center"> <img src="/assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></div>
+        <div class="nav__logo flex-row div-center"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></div>
         <h3>Welcome back!</h3>
         <div class="alert__message success">
           Successful!
@@ -41,7 +41,7 @@
           <button type="submit">Sign In</button>
         </form>
         <div class="signin-link">
-          <p>Already have an account? <a href="sign-up.html">Sign Up</a></p>
+          <p>Already have an account? <a href="sign-up.php">Sign Up</a></p>
         </div>
       </div>
 </main>

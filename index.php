@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodieRecipes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- NavBar -->
     <nav class="navbar">
         <div class="nav__container container flex-row div-center">
-            <a href="index.php" class="nav__logo flex-row div-center"> <img src="/assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
+            <a href="index.php" class="nav__logo flex-row div-center"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
             <ul class="flex-row nav__items nav__details">
                 <li class="nav__items-active home"><a href="/">Home</a></li>
-                <li class="nav__items-inactive"><a href="/recipe.php">Recipes</a></li>
-                <li class="nav__items-inactive"><a href="/about.php">About us</a></li>
+                <li class="nav__items-inactive"><a href="recipe.php">Recipes</a></li>
+                <li class="nav__items-inactive"><a href="about.php">About us</a></li>
             </ul>
             <ul class="flex-row nav__login nav__details">
                 <li class="nav__login-btns flex-row nav__details">
@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav__profile hidden">
                      <div class="avatar">
-                         <img src="/assets/avatar2.jpg" alt="avatar" draggable="false" class="rounded">
+                         <img src="assets/avatar2.jpg" alt="avatar" draggable="false" class="rounded">
                      </div>
                      <ul class="flex-column">
                          <li><a href="dashboard.php" class="nav__dash">Dashboard</a></li>
@@ -68,7 +68,7 @@
             </div>
             <div class="flex-column div-center cat-item">
                 <div>
-                    <img src="/assets/pizza.jpg" alt="cat-img2">
+                    <img src="assets/pizza.jpg" alt="cat-img2">
                 </div>
                 <span>Pizza</span>
             </div>
@@ -232,13 +232,13 @@
         <footer class="footer cont__section container">
               <section class="flex-row  space-between  footer__top">
                 <div>
-                    <a href="index.php" class="nav__logo flex-row footer__logo"> <img src="/assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
+                    <a href="index.php" class="nav__logo flex-row footer__logo"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
                     <p class="cont__text">Your favourite Recipes in one place</p>
                 </div>
                 <ul class="flex-row footer__items  div-center">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="/recipe.php">Recipes</a></li>
-                    <li><a href="/about.php">About us</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="recipe.php">Recipes</a></li>
+                    <li><a href="about.php">About us</a></li>
                 </ul>
               </section>
               <section class="flex-row space-between">
@@ -250,6 +250,6 @@
                   </div>
               </section>
         </footer>
-     <script type="module" src="/javascript/main.js"></script>
+     <script type="module" src="javascript/main.js"></script>
 </body>
 </html>
