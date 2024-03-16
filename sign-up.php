@@ -67,7 +67,7 @@
       <button type="submit">Sign Up</button>
     </form>
     <div class="signin-link">
-      <p>Already have an account? <a href="sign-in.php">Sign In</a></p>
+      <p>Already have an account? <a href="<?= ROOT_URL?>sign-in.php">Sign In</a></p>
     </div>
   </div>
   <script type="module" src="/javascript/main.js"></script>

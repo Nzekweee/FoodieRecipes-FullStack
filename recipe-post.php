@@ -1,6 +1,9 @@
        <?php
          include 'partials/header.php';
          ?>
+        <style>
+          <?php include 'css/recipe.css'; ?>
+          </style>
     <main class="container cont-section recipe__post-container">
         <h2>Health Japanese Fried Rice </h2>
         <header class="flex-row space-between">

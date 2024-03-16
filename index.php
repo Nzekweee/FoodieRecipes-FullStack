@@ -6,8 +6,8 @@ include 'partials/header.php' ;
          <section class="header__left">
              <h1>Your favourite <span> Recipes</span> in one place</h1>
              <p class="cont__text">Whether you’re a seasoned chef or a kitchen novice, having all your cherished recipes neatly organized is a true delight. Imagine flipping through the pages of your recipe book, each dish evoking memories and flavors. We have collections of mouthwatering recipes to tantalize your taste buds.</p>
-                <a href="sign-up.php" class="header__login-btn div-center">Sign up</a>
-             <p class="cont__text">Do you have an account? <a href="sign-in.php">Log in</a></p>
+                <a href="<?= ROOT_URL?>sign-up.php" class="header__login-btn div-center">Sign up</a>
+             <p class="cont__text">Do you have an account? <a href="<?= ROOT_URL?>sign-in.php">Log in</a></p>
 
          </section>
          <section class="header__right flex-row div-center">

@@ -17,22 +17,35 @@ require 'config/database.php';
         <div class="nav__container container flex-row div-center">
             <a href="index.php" class="nav__logo flex-row div-center"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
             <ul class="flex-row nav__items nav__details">
-                <li class="nav__items-active home"><a href="/">Home</a></li>
-                <li class="nav__items-inactive"><a href="recipe.php">Recipes</a></li>
-                <li class="nav__items-inactive"><a href="about.php">About us</a></li>
+            <?php
+                  if (basename($_SERVER['PHP_SELF']) === 'index.php') {
+                      echo '<li class="nav__items-active home"><a href="' . ROOT_URL . '">Home</a></li>';
+                      echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . 'recipe.php">Recipes</a></li>';
+                      echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . 'about.php">About us</a></li>';
+                  } elseif (basename($_SERVER['PHP_SELF']) === 'recipe.php') {
+                      echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . '">Home</a></li>';
+                      echo '<li class="nav__items-active recipe"><a href="' . ROOT_URL . 'recipe.php">Recipes</a></li>';
+                      echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . 'about.php">About us</a></li>';
+                  } elseif (basename($_SERVER['PHP_SELF']) === 'about.php') {
+                      echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . '">Home</a></li>';
+                      echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . 'recipe.php">Recipes</a></li>';
+                      echo '<li class="nav__items-active about"><a href="' . ROOT_URL . 'about.php">About us</a></li>';
+                  }
+             ?>
+
             </ul>
             <ul class="flex-row nav__login nav__details">
                 <li class="nav__login-btns flex-row nav__details">
-                    <a href="sign-in.php" class="login__buttons login__btn">Log in</a>
-                    <a href="sign-up.php" class="login__buttons signup__btn">Sign up</a>
+                    <a href="<?= ROOT_URL?>sign-in.php" class="login__buttons login__btn">Log in</a>
+                    <a href="<?= ROOT_URL?>sign-up.php" class="login__buttons signup__btn">Sign up</a>
                 </li>
                 <li class="nav__profile hidden">
                      <div class="avatar">
                          <img src="assets/avatar2.jpg" alt="avatar" draggable="false" class="rounded">
                      </div>
                      <ul class="flex-column">
-                         <li><a href="dashboard.php" class="nav__dash">Dashboard</a></li>
-                         <li><a href="logout.php" class="nav__logout">Logout</a></li>
+                         <li><a href="<?= ROOT_URL?>admin/dashboard.php" class="nav__dash">Dashboard</a></li>
+                         <li><a href="<?= ROOT_URL?>logout.php" class="nav__logout">Logout</a></li>
                      </ul>
                 </li>
             </ul>

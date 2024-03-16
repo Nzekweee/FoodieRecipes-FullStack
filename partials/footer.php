@@ -8,9 +8,9 @@
                     <p class="cont__text">Your favourite Recipes in one place</p>
                 </div>
                 <ul class="flex-row footer__items  div-center">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="recipe.php">Recipes</a></li>
-                    <li><a href="about.php">About us</a></li>
+                    <li><a href="<?= ROOT_URL?>">Home</a></li>
+                    <li><a href="<?= ROOT_URL?>recipe.php">Recipes</a></li>
+                    <li><a href="<?= ROOT_URL?>about.php">About us</a></li>
                 </ul>
               </section>
               <section class="flex-row space-between">

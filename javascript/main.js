@@ -234,14 +234,14 @@ recipeCategories.forEach((category) => {
             <span class="recipe-category">${recipe.category}</span>
           </div>
         </div>
-        <a href="${recipe.recipeLink}" class="view-recipe">View Recipe</a>
+        <a href="<?= ROOT_URL?>${recipe.recipeLink}" class="view-recipe">View Recipe</a>
       </div>
     `;
  
     categoryDiv += recipeDet;
   });
   categoryDiv += `</section>`;
-  categoryDiv += `<div class="view-more-recipe-btn flex-row div-center"><a href="category-post.php">View More Recipes</a></div>`;
+  categoryDiv += `<div class="view-more-recipe-btn flex-row div-center"><a href="<?= ROOT_URL?>category-post.php">View More Recipes</a></div>`;
   categoryDiv += `</section>`;
   categoryDivs += categoryDiv;
 

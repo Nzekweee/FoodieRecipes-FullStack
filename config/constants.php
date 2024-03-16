@@ -1,2 +1,2 @@
 <?php
-define('ROOT_URL', 'http:http://localhost/foodierecipes/');
+define('ROOT_URL', 'http://localhost/foodierecipes/');
