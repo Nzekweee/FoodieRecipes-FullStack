@@ -1,49 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodieRecipes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- NavBar -->
-    <nav class="navbar">
-        <div class="nav__container container flex-row div-center">
-            <a href="index.php" class="nav__logo flex-row div-center"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
-            <ul class="flex-row nav__items nav__details">
-                <li class="nav__items-active home"><a href="/">Home</a></li>
-                <li class="nav__items-inactive"><a href="recipe.php">Recipes</a></li>
-                <li class="nav__items-inactive"><a href="about.php">About us</a></li>
-            </ul>
-            <ul class="flex-row nav__login nav__details">
-                <li class="nav__login-btns flex-row nav__details">
-                    <a href="sign-in.php" class="login__buttons login__btn">Log in</a>
-                    <a href="sign-up.php" class="login__buttons signup__btn">Sign up</a>
-                </li>
-                <li class="nav__profile hidden">
-                     <div class="avatar">
-                         <img src="assets/avatar2.jpg" alt="avatar" draggable="false" class="rounded">
-                     </div>
-                     <ul class="flex-column">
-                         <li><a href="dashboard.php" class="nav__dash">Dashboard</a></li>
-                         <li><a href="logout.php" class="nav__logout">Logout</a></li>
-                     </ul>
-                </li>
-            </ul>
-            <div class="nav__resp-btns">
-                <button class="open__nav-btn"><i class="fa-solid fa-bars-staggered"></i></button>
-                <button class="close__nav-btn hidden"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-        </div>
-    </nav>
-     <!-- NavBar Ends-->
+<?php
+include 'partials/header.php' ;
+?>
      <!--Header -->
      <header class="container header__container flex-row space-between">
          <section class="header__left">
              <h1>Your favourite <span> Recipes</span> in one place</h1>
-             <p class="cont__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nesciunt cupiditate nostrum reiciendis vitae rem! Tempore laudantium accusantium totam facilis eius cupiditate eum? Modi, quidem consequatur ad aspernatur eligendi sunt.</p>
+             <p class="cont__text">Whether you’re a seasoned chef or a kitchen novice, having all your cherished recipes neatly organized is a true delight. Imagine flipping through the pages of your recipe book, each dish evoking memories and flavors. We have collections of mouthwatering recipes to tantalize your taste buds.</p>
                 <a href="sign-up.php" class="header__login-btn div-center">Sign up</a>
              <p class="cont__text">Do you have an account? <a href="sign-in.php">Log in</a></p>
 
@@ -228,28 +190,6 @@
             </div>
          </section>
         <!-- Chef CTA Section Ends-->
-        <!-- Footer -->
-        <footer class="footer cont__section container">
-              <section class="flex-row  space-between  footer__top">
-                <div>
-                    <a href="index.php" class="nav__logo flex-row footer__logo"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></a>
-                    <p class="cont__text">Your favourite Recipes in one place</p>
-                </div>
-                <ul class="flex-row footer__items  div-center">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="recipe.php">Recipes</a></li>
-                    <li><a href="about.php">About us</a></li>
-                </ul>
-              </section>
-              <section class="flex-row space-between">
-                <span>2024&copy;foodieRecipe</span>
-                <div class="social-icons flex-row">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                  </div>
-              </section>
-        </footer>
-     <script type="module" src="javascript/main.js"></script>
-</body>
-</html>
+<?php
+include 'partials/footer.php';
+?>

@@ -8,7 +8,7 @@ export const recipeCategories = [
                 recipetitle:'Chocoloate Delight flambe',
                 recipeTime: '30 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pasta"
 
@@ -18,7 +18,7 @@ export const recipeCategories = [
                 recipetitle:'Yummy chocolate banana smoothie',
                 recipeTime: '15 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pasta"
 
@@ -28,7 +28,7 @@ export const recipeCategories = [
                 recipetitle:'Fresh and Healthy Fruity salad',
                 recipeTime: '25 Mins',
                 rating: '1',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pasta"
             },
@@ -37,7 +37,7 @@ export const recipeCategories = [
                 recipetitle:'Creamy vegan pasta delight',
                 recipeTime: '10 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pasta"
 
@@ -47,7 +47,7 @@ export const recipeCategories = [
                 recipetitle:'Pesto pasta',
                 recipeTime: '15 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pasta"
             },
@@ -56,7 +56,7 @@ export const recipeCategories = [
                 recipetitle:'Bread and baked beans morning delight',
                 recipeTime: '25 Mins',
                 rating: '3',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pasta"
 
@@ -74,7 +74,7 @@ export const recipeCategories = [
                 recipetitle:'Chocoloate Delight flambe',
                 recipeTime: '30 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pizza"
 
@@ -84,7 +84,7 @@ export const recipeCategories = [
                 recipetitle:'Yummy chocolate banana smoothie',
                 recipeTime: '15 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pizza"
 
@@ -94,7 +94,7 @@ export const recipeCategories = [
                 recipetitle:'Fresh and Healthy Fruity salad',
                 recipeTime: '25 Mins',
                 rating: '1',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pizza"
             },
@@ -103,7 +103,7 @@ export const recipeCategories = [
                 recipetitle:'Creamy vegan pasta delight',
                 recipeTime: '10 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pizza"
 
@@ -113,7 +113,7 @@ export const recipeCategories = [
                 recipetitle:'Pesto pasta',
                 recipeTime: '15 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pizza"
             },
@@ -122,7 +122,7 @@ export const recipeCategories = [
                 recipetitle:'Bread and baked beans morning delight',
                 recipeTime: '25 Mins',
                 rating: '3',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Pizza"
 
@@ -140,7 +140,7 @@ export const recipeCategories = [
                 recipetitle:'Chocoloate Delight flambe',
                 recipeTime: '30 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Vegan"
 
@@ -150,7 +150,7 @@ export const recipeCategories = [
                 recipetitle:'Yummy chocolate banana smoothie',
                 recipeTime: '15 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Vegan"
 
@@ -160,7 +160,7 @@ export const recipeCategories = [
                 recipetitle:'Fresh and Healthy Fruity salad',
                 recipeTime: '25 Mins',
                 rating: '1',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Vegan"
             },
@@ -169,7 +169,7 @@ export const recipeCategories = [
                 recipetitle:'Creamy vegan pasta delight',
                 recipeTime: '10 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Vegan"
 
@@ -179,7 +179,7 @@ export const recipeCategories = [
                 recipetitle:'Pesto pasta',
                 recipeTime: '15 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Vegan"
             },
@@ -188,7 +188,7 @@ export const recipeCategories = [
                 recipetitle:'Bread and baked beans morning delight',
                 recipeTime: '25 Mins',
                 rating: '3',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Vegan"
 
@@ -206,7 +206,7 @@ export const recipeCategories = [
                 recipetitle:'Chocoloate Delight flambe',
                 recipeTime: '30 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Desserts"
 
@@ -216,7 +216,7 @@ export const recipeCategories = [
                 recipetitle:'Yummy chocolate banana smoothie',
                 recipeTime: '15 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Desserts"
 
@@ -226,7 +226,7 @@ export const recipeCategories = [
                 recipetitle:'Fresh and Healthy Fruity salad',
                 recipeTime: '25 Mins',
                 rating: '1',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Desserts"
             },
@@ -235,7 +235,7 @@ export const recipeCategories = [
                 recipetitle:'Creamy vegan pasta delight',
                 recipeTime: '10 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Desserts"
 
@@ -245,7 +245,7 @@ export const recipeCategories = [
                 recipetitle:'Pesto pasta',
                 recipeTime: '15 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Desserts"
             },
@@ -254,7 +254,7 @@ export const recipeCategories = [
                 recipetitle:'Bread and baked beans morning delight',
                 recipeTime: '25 Mins',
                 rating: '3',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Desserts"
 
@@ -272,7 +272,7 @@ export const recipeCategories = [
                 recipetitle:'Chocoloate Delight flambe',
                 recipeTime: '30 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Smothies"
 
@@ -282,7 +282,7 @@ export const recipeCategories = [
                 recipetitle:'Yummy chocolate banana smoothie',
                 recipeTime: '15 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Smothies"
 
@@ -292,7 +292,7 @@ export const recipeCategories = [
                 recipetitle:'Fresh and Healthy Fruity salad',
                 recipeTime: '25 Mins',
                 rating: '1',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Smothies"
             },
@@ -301,7 +301,7 @@ export const recipeCategories = [
                 recipetitle:'Creamy vegan pasta delight',
                 recipeTime: '10 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Smothies"
 
@@ -311,7 +311,7 @@ export const recipeCategories = [
                 recipetitle:'Pesto pasta',
                 recipeTime: '15 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Smothies"
             },
@@ -320,7 +320,7 @@ export const recipeCategories = [
                 recipetitle:'Bread and baked beans morning delight',
                 recipeTime: '25 Mins',
                 rating: '3',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Smothies"
 
@@ -338,7 +338,7 @@ export const recipeCategories = [
                 recipetitle:'Chocoloate Delight flambe',
                 recipeTime: '30 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Breakfast"
 
@@ -348,7 +348,7 @@ export const recipeCategories = [
                 recipetitle:'Yummy chocolate banana smoothie',
                 recipeTime: '15 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Breakfast"
 
@@ -358,7 +358,7 @@ export const recipeCategories = [
                 recipetitle:'Fresh and Healthy Fruity salad',
                 recipeTime: '25 Mins',
                 rating: '1',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Breakfast"
             },
@@ -367,7 +367,7 @@ export const recipeCategories = [
                 recipetitle:'Creamy vegan pasta delight',
                 recipeTime: '10 Mins',
                 rating: '4',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Breakfast"
 
@@ -377,7 +377,7 @@ export const recipeCategories = [
                 recipetitle:'Pesto pasta',
                 recipeTime: '15 Mins',
                 rating: '5',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Breakfast"
             },
@@ -386,7 +386,7 @@ export const recipeCategories = [
                 recipetitle:'Bread and baked beans morning delight',
                 recipeTime: '25 Mins',
                 rating: '3',
-                recipeLink: 'recipe-post.html',
+                recipeLink: 'recipe-post.php',
                 recipeLike: 0,
                 category: "Breakfast"
 
