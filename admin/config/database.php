@@ -1,2 +1,2 @@
 <?php
-require 'config/constants.php';
+require '../config/constants.php';

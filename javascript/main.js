@@ -13,11 +13,20 @@ searchInput = document.getElementById("searchInput"),
 searchDropdown = document.getElementById("searchDropdown"),
 viewFilters = document.querySelector(".view-filters"),
 searchContainerBottom = document.querySelector(".search__container-bottom"),
-customDropdowns = document.querySelectorAll(".custom-dropdown");
+customDropdowns = document.querySelectorAll(".custom-dropdown"),
+sideBar = document.querySelector('.dashboard__sidebar'),
+showSideBarToggle  = document.querySelector('#show__sidebar-btn'),
+hideSideBarToggle  = document.querySelector('#hide__sidebar-btn'),
+fileInput = document.getElementById('user-avatar'),
+recipeImg = document.getElementById('recipe-img'),
+addIngBtn = document.querySelector('.add-ing'),
+ingredientCont = document.querySelector('.ingredient__cont'),
+addDirBtn = document.querySelector('.add-dir'),
+removeDirBtn = document.querySelector('.remove-dir'),
+directionsContainer = document.querySelector('.directions-cont');
 
 
-
-
+//navbar
 openNavIcon ? openNavIcon.addEventListener("click", () => {
      navItems.forEach((navItem)=>{
        navItem.style.display = "flex";
@@ -33,6 +42,92 @@ closeNavIcon ? closeNavIcon.addEventListener("click", () =>{
       openNavIcon.classList.remove("hidden")
       closeNavIcon.classList.add("hidden")
 }): null;
+
+
+//dashboard nav
+const showSideBar = () =>{
+  sideBar.style.left = '0'
+  showSideBarToggle.style.display = 'none'
+  hideSideBarToggle.style.display = 'inline-block'
+
+}
+
+const hideSideBar = () =>{
+  sideBar.style.left = '-100%'
+  hideSideBarToggle.style.display = 'none'
+  showSideBarToggle.style.display = 'inline-block'
+}
+if(sideBar){
+ showSideBarToggle.addEventListener('click', showSideBar)
+ hideSideBarToggle.addEventListener('click', hideSideBar)
+
+ //upload recipe Img
+ fileInput ? fileInput.addEventListener('change', function() {
+  if (this.files && this.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          recipeImg.src = e.target.result;
+      };
+      reader.readAsDataURL(this.files[0]);
+  }
+}) : null;
+
+   // Create a new ingredient input field
+    addIngBtn ? addIngBtn.addEventListener('click', function() {
+        // Create a new ingredient input field
+        const newIngredientGroup = document.createElement('div');
+        newIngredientGroup.classList.add('recipe-ing-group', 'flex-row');
+
+        const newIngredientInput = document.createElement('input');
+        newIngredientInput.type = 'text';
+        newIngredientInput.classList.add('recipeIngredients');
+        newIngredientInput.name = 'recipeIngredients';
+        newIngredientInput.placeholder = 'Add Ingredient';
+        newIngredientInput.required = true;
+
+        const removeIcon = document.createElement('i');
+        removeIcon.classList.add('fa-solid', 'fa-trash', 'remove-ing');
+        removeIcon.addEventListener('click', function() {
+            ingredientCont.removeChild(newIngredientGroup);
+        });
+
+        newIngredientGroup.appendChild(newIngredientInput);
+        newIngredientGroup.appendChild(removeIcon);
+
+        ingredientCont.insertBefore(newIngredientGroup, addIngBtn);
+    }) : null ;
+
+
+         // Create and removea article  element for directions
+      let stepCounter = 2; 
+  
+      addDirBtn? addDirBtn.addEventListener('click', function() {
+          const newDirectionArticle = document.createElement('article');
+          newDirectionArticle.innerHTML = `
+              <div class="direction-title-cont flex-row">
+                  <span>Step ${stepCounter}</span>
+                  <input type="text" class="direction-tile" name="direction-tile" placeholder="What's step ${stepCounter}" required>
+              </div>
+              <textarea name="" cols="30" rows="10" placeholder="Describe the step"></textarea>
+          `;
+          stepCounter++;
+          directionsContainer.appendChild(newDirectionArticle);
+      }) : null ;
+  
+      removeDirBtn ? removeDirBtn.addEventListener('click', function() {
+          const lastDirectionArticle = directionsContainer.lastElementChild;
+          if (lastDirectionArticle) {
+              directionsContainer.removeChild(lastDirectionArticle);
+              stepCounter--;
+              const prevStepNumber = stepCounter - 1;
+              const prevStepSpan = document.querySelector(`.direction-title-cont:nth-child(${prevStepNumber}) span`);
+              if (prevStepSpan) {
+                  prevStepSpan.textContent = `Step ${prevStepNumber}`;
+              }
+          }
+      }) : null ;
+   
+}
 
 //liking recipes
 let likeBool = false
@@ -57,7 +152,6 @@ if (recipeLike){
 
 
 //password
-// Toggle password visibility when view icon is clicked
 if (viewPasswordIcon) {
   viewPasswordIcon.forEach((viewIcon, idx) => {
     viewIcon.addEventListener("click", () => {
@@ -68,7 +162,6 @@ if (viewPasswordIcon) {
   });
 }
 
-// Toggle password visibility when hide icon is clicked
 if (hidePasswordIcon) {
   hidePasswordIcon.forEach((hideIcon, idx) => {
     hideIcon.addEventListener("click", () => {
@@ -234,14 +327,14 @@ recipeCategories.forEach((category) => {
             <span class="recipe-category">${recipe.category}</span>
           </div>
         </div>
-        <a href="<?= ROOT_URL?>${recipe.recipeLink}" class="view-recipe">View Recipe</a>
+        <a href="${recipe.recipeLink}" class="view-recipe">View Recipe</a>
       </div>
     `;
  
     categoryDiv += recipeDet;
   });
   categoryDiv += `</section>`;
-  categoryDiv += `<div class="view-more-recipe-btn flex-row div-center"><a href="<?= ROOT_URL?>category-post.php">View More Recipes</a></div>`;
+  categoryDiv += `<div class="view-more-recipe-btn flex-row div-center"><a href="category-post.html">View More Recipes</a></div>`;
   categoryDiv += `</section>`;
   categoryDivs += categoryDiv;
 
@@ -269,39 +362,40 @@ document.addEventListener('click', function(event) {
 const rateRecipeBtn = document.querySelector('.rate-recipe-btn');
 const ratingContainer = document.querySelector('.rating-container');
 
-// Show rating container on button click
 if(rateRecipeBtn){
-  rateRecipeBtn.addEventListener('click', () => {
-    ratingContainer.style.display = 'block';
-  });
-  
-  // Create stars
-  for (let i = 1; i <= 5; i++) {
-    const star = document.createElement('span');
-    star.classList.add('star', 'fa', 'fa-star', 'fa-2x');
-    star.setAttribute('data-rating', i); // Set data attribute for rating value
-    ratingContainer.appendChild(star);
-  }
-  
-  // Rate recipe function using event delegation
-  ratingContainer.addEventListener('click', (event) => {
-    const clickedStar = event.target;
-    if (clickedStar.classList.contains('star')) {
-      const rating = parseInt(clickedStar.getAttribute('data-rating'));
-      
-      // Fill stars up to the clicked star
-      const stars = ratingContainer.querySelectorAll('.star');
-      stars.forEach((star, index) => {
-        if (index < rating) {
-          star.classList.add('fa-solid');
-        } else {
-          star.classList.remove('fa-solid');
-        }
-      });
-      
-      // You can also return the rating or perform further actions with it
-      return rating;
-    }
-  });
+  // Show rating container on button click
+rateRecipeBtn.addEventListener('click', () => {
+  ratingContainer.style.display = 'block';
+});
+
+// Create stars
+for (let i = 1; i <= 5; i++) {
+  const star = document.createElement('span');
+  star.classList.add('star', 'fa', 'fa-star', 'fa-2x');
+  star.setAttribute('data-rating', i); // Set data attribute for rating value
+  ratingContainer.appendChild(star);
 }
 
+// Rate recipe function using event delegation
+ratingContainer.addEventListener('click', (event) => {
+  const clickedStar = event.target;
+  if (clickedStar.classList.contains('star')) {
+    const rating = parseInt(clickedStar.getAttribute('data-rating'));
+    
+    // Fill stars up to the clicked star
+    const stars = ratingContainer.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+      if (index < rating) {
+        star.classList.add('fa-solid');
+      } else {
+        star.classList.remove('fa-solid');
+      }
+    });
+    
+    // You can also return the rating or perform further actions with it
+    return rating;
+  }
+});
+
+
+}

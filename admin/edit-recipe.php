@@ -1,13 +1,13 @@
-         <?php
+        <?php
          include './partials/header.php' ;
          ?>
-                  <?php
+        <?php
          include './partials/sidenav.php' ;
          ?>
-                        <h4>Create A New Recipe</h4>
+                        <h4>Edit Recipe</h4>
                       <form action="">
                         <div class="form-group flex-column">
-                           <label for="">Recipe Title</label>
+                           <label for="">Change Recipe Title</label>
                             <input type="text" id="recipeTitle" name="recipeTitle" placeholder="Your recipe's title" required>
                           </div>
                         <div class="form-group flex-column">
@@ -15,15 +15,15 @@
                             <input type="image" id="recipe-img" alt="Image" src="../assets/photo-placeholder.png" disabled>
                           </div>
                           <div class="form-group flex-column user-profile-div">
-                            <label for="user-profile">Add a Photo</label>
+                            <label for="user-profile">Change Photo</label>
                             <input type="file" accept='image/*' id="user-avatar" required>
                           </div>
                           <div class="form-group flex-column">
-                            <label for="">Description</label>
+                            <label for="">Change Description</label>
                              <input type="text" id="recipeDesc" name="recipeDesc" placeholder="Introduce your recipe" required>
                            </div>
-                           <div class="form-group flex-column ingredient__cont">
-                            <label for="">Ingredients</label>
+                           <div class="form-group flex-column">
+                            <label for="">Change Ingredients</label>
                              <div class="recipe-ing-group flex-row">
                                 <input type="text" class="recipeIngredients" name="recipeIngredients" placeholder="Add Ingredient" required>
                                 <i class="fa-solid fa-trash remove-ing"></i>
@@ -34,7 +34,7 @@
                              </section>
                            </div>
                            <div class="form-group flex-column directions">
-                            <label for="">Directions</label>
+                            <label for="">Change Directions</label>
                             <div class="directions-cont">
                                 <article>
                                     <div class="direction-title-cont flex-row">
@@ -57,15 +57,15 @@
                          </section>
                            </div>
                            <div class="form-group flex-column">
-                            <label for="">Prep Time in mins</label>
+                            <label for="">Change Prep Time in mins</label>
                              <input type="number" id="prepTime" name="prepTime" required>
                            </div>
                            <div class="form-group flex-column">
-                            <label for="">Cook Time in mins</label>
+                            <label for="">Change Cook Time in mins</label>
                              <input type="number" id="cookTime" name="cookTime" required>
                            </div>
                            <select name="" id="">
-                            <option value="0" class="select-title">Choose a Category</option>
+                            <option value="0" class="select-title">Change Category</option>
                              <option value="1">Pasta</option>
                              <option value="2">Pizza</option>
                              <option value="1">Vegan</option>
@@ -73,7 +73,7 @@
                              <option value="1">Smoothies</option>
                              <option value="1">Breakfast</option>
                            </select>
-                           <button class="view-more-recipe-btn flex-row div-center" id="create-recipe">Create Recipe</button>
+                           <button class="view-more-recipe-btn flex-row div-center" id="create-recipe">Update Recipe</button>
                       </form>
                 </section>
 
