@@ -39,8 +39,8 @@
         <input type="password" id="signup-confirm-password" class="password" name="confirm-password" placeholder="Confirm Password" required>
       </div>
       <div class="form-group  ">
-        <span>Choose your role:</span>
-       <div class="flex-row role__cont">
+        <!-- <span>Choose your role:</span> -->
+       <!-- <div class="flex-row role__cont">
         <div class='form-role-seeker role__cont__select'>
             <span>Recipe Seeker</span>
          </div>
@@ -50,7 +50,7 @@
          <div class='form-role-admin'>
             <span>Admin</span>
          </div>
-       </div>
+       </div> -->
        <div class="form-group user-profile-div">
         <label for="user-profile">User Profile Picture</label>
         <input type="file" accept='image/*' id="user-avatar" required>
@@ -67,9 +67,9 @@
       <button type="submit">Sign Up</button>
     </form>
     <div class="signin-link">
-      <p>Already have an account? <a href="<?= ROOT_URL?>sign-in.php">Sign In</a></p>
+      <p>Already have an account? <a href="sign-in.php">Sign In</a></p>
     </div>
   </div>
-  <script type="module" src="/javascript/main.js"></script>
+  <script type="module" src="javascript/main.js"></script>
 </body>
 </html>

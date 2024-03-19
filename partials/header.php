@@ -35,11 +35,11 @@ require 'config/database.php';
 
             </ul>
             <ul class="flex-row nav__login nav__details">
-                <!-- <li class="nav__login-btns flex-row nav__details">
+                <li class="nav__login-btns flex-row nav__details">
                     <a href="<?= ROOT_URL?>sign-in.php" class="login__buttons login__btn">Log in</a>
                     <a href="<?= ROOT_URL?>sign-up.php" class="login__buttons signup__btn">Sign up</a>
-                </li> -->
-                <li class="nav__profile ">
+                </li>
+                <!-- <li class="nav__profile ">
                      <div class="avatar">
                          <img src="assets/avatar2.jpg" alt="avatar" draggable="false" class="rounded">
                      </div>
@@ -47,7 +47,7 @@ require 'config/database.php';
                          <li><a href="<?= ROOT_URL?>admin" class="nav__dash">Dashboard</a></li>
                          <li><a href="<?= ROOT_URL?>logout.php" class="nav__logout">Logout</a></li>
                      </ul>
-                </li>
+                </li> -->
             </ul>
             <div class="nav__resp-btns">
                 <button class="open__nav-btn"><i class="fa-solid fa-bars-staggered"></i></button>

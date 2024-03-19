@@ -41,7 +41,7 @@
           <button type="submit">Sign In</button>
         </form>
         <div class="signin-link">
-          <p>Already have an account? <a href="<?= ROOT_URL?>sign-up.php">Sign Up</a></p>
+          <p>Don't have an account? <a href="sign-up.php">Sign Up</a></p>
         </div>
       </div>
 </main>
