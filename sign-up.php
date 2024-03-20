@@ -1,3 +1,8 @@
+<?php
+require 'config/constants.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +20,7 @@
     <div class="alert__message error">
         This is an error message
     </div>
-    <form action="#">
+    <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
       <div class="form-group">
         <span class="input-icon  fa-regular fa-user"></span>
         <input type="text" id="fullname" name="fullname" placeholder="Full Name" required autocomplete="given-name">
@@ -31,29 +36,17 @@
       <div class="form-group">
         <span class="input-icon  fa-solid fa-eye hide-password hidden"></span>
         <span class="input-icon  fa-solid fa-eye-slash view-password"></span>
-        <input type="password" id="signup-password" name="password" placeholder="Password" required class="password">
+        <input type="password" id="signup-password" name="createPassword" placeholder="Password" required class="password">
       </div>
       <div class="form-group">
         <span class="input-icon  fa-solid fa-eye hide-password hidden"></span>
         <span class="input-icon  fa-solid fa-eye-slash view-password"></span>
-        <input type="password" id="signup-confirm-password" class="password" name="confirm-password" placeholder="Confirm Password" required>
+        <input type="password" id="confirm-password" class="password" name="confirmPassword" placeholder="Confirm Password" required>
       </div>
-      <div class="form-group  ">
-        <!-- <span>Choose your role:</span> -->
-       <!-- <div class="flex-row role__cont">
-        <div class='form-role-seeker role__cont__select'>
-            <span>Recipe Seeker</span>
-         </div>
-         <div class='form-role-chef'>
-            <span>Chef</span>
-         </div>
-         <div class='form-role-admin'>
-            <span>Admin</span>
-         </div>
-       </div> -->
+      <div class="form-group ">
        <div class="form-group user-profile-div">
-        <label for="user-profile">User Profile Picture</label>
-        <input type="file" accept='image/*' id="user-avatar" required>
+        <label for="avatar">User Profile Picture</label>
+        <input type="file" accept='image/*' id="user-avatar" name="avatar" required>
        </div>
       <div class="form-group flex-row div-center terms__box">
         <div class="signup-checkbox">
@@ -64,7 +57,7 @@
       </div>
       </div>
 
-      <button type="submit">Sign Up</button>
+      <button type="submit" name="submit">Sign Up</button>
     </form>
     <div class="signin-link">
       <p>Already have an account? <a href="sign-in.php">Sign In</a></p>
