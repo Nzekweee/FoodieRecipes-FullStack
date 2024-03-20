@@ -3,9 +3,6 @@ closeNavIcon =  document.querySelector(".close__nav-btn"),
 navItems = document.querySelectorAll(".nav__details"),
 recipeLike = document.querySelectorAll(".recipe_like"),
 recipeHeart = document.querySelectorAll(".recipe_like i"),
-recipeSeekerRole =  document.querySelector(".form-role-seeker"),
-chefRole =  document.querySelector(".form-role-chef"),
-adminRole =  document.querySelector(".form-role-admin"),
 viewPasswordIcon = document.querySelectorAll('.view-password'),
 hidePasswordIcon = document.querySelectorAll('.hide-password'),
 passwordInput = document.querySelectorAll('.password'),
@@ -172,31 +169,6 @@ if (hidePasswordIcon) {
   });
 }
 
-
-
-//Choosing Role on sign up
-const selectRole = (num) =>{
-   if (num === 0) {
-     recipeSeekerRole.classList.add("role__cont__select")
-     chefRole.classList.remove("role__cont__select")
-     adminRole.classList.remove("role__cont__select")
-   } 
-   else if(num === 1){
-      chefRole.classList.add("role__cont__select")
-      recipeSeekerRole.classList.remove("role__cont__select")
-      adminRole.classList.remove("role__cont__select")}
-   else if (num === 2) {
-      adminRole.classList.add("role__cont__select")
-      recipeSeekerRole.classList.remove("role__cont__select")
-      chefRole.classList.remove("role__cont__select")
-    } else{
-      null
-    }
-   }
-
-recipeSeekerRole ? recipeSeekerRole.addEventListener("click",()=>selectRole(0) ) : null
-chefRole ? chefRole.addEventListener("click",()=>selectRole(1) ) : null
-adminRole ?adminRole.addEventListener("click",()=>selectRole(2) ) : null
 
 // RECIPE PAGE
 //search functionality

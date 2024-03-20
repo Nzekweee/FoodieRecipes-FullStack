@@ -1,6 +1,13 @@
 <?php
 require 'config/constants.php';
 
+
+//get form dats back if redirect
+$fullname = $_SESSION['signup-data']['fullname'] ?? null;
+$username = $_SESSION['signup-data']['username'] ?? null;
+$email = $_SESSION['signup-data']['email'] ?? null;
+$createPassword = $_SESSION['signup-data']['createPassword'] ?? null;
+$confirmPassword = $_SESSION['signup-data']['confirmPassword'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -17,31 +24,37 @@ require 'config/constants.php';
   <div class="form__container form__siginup__container">
     <div class="nav__logo flex-row div-center"> <img src="assets/foodie-logo.png" alt="logo"> Foodie<span>Recipes</span></div>
     <h3>Create an account</h3>
-    <div class="alert__message error">
-        This is an error message
+    <?php if (isset($_SESSION['sign-up'])) : ?>
+      <div class="alert__message error">
+        <p style="font-size: 14px; font-weight:600 ;">
+          <?=  $_SESSION['sign-up'];
+          unset($_SESSION['sign-up']);
+          ?>
+        </p>
     </div>
+    <?php endif ?>
     <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
       <div class="form-group">
         <span class="input-icon  fa-regular fa-user"></span>
-        <input type="text" id="fullname" name="fullname" placeholder="Full Name" required autocomplete="given-name">
+        <input type="text" id="fullname" name="fullname" placeholder="Full Name" value="<?=$fullname ?>" required autocomplete="given-name">
       </div>
       <div class="form-group">
         <span class="input-icon  fa-regular fa-user"></span>
-        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="text" id="username" name="username" value="<?=$username ?>" placeholder="Username" required>
       </div>
       <div class="form-group">
         <span class="input-icon fa-regular fa-envelope"></span>
-        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="email" id="email" name="email" placeholder="Email" value="<?=$email ?>" required>
       </div>
       <div class="form-group">
         <span class="input-icon  fa-solid fa-eye hide-password hidden"></span>
         <span class="input-icon  fa-solid fa-eye-slash view-password"></span>
-        <input type="password" id="signup-password" name="createPassword" placeholder="Password" required class="password">
+        <input type="password" id="signup-password" name="createPassword" value="<?=$createPassword ?>" placeholder="Password" required class="password">
       </div>
       <div class="form-group">
         <span class="input-icon  fa-solid fa-eye hide-password hidden"></span>
         <span class="input-icon  fa-solid fa-eye-slash view-password"></span>
-        <input type="password" id="confirm-password" class="password" name="confirmPassword" placeholder="Confirm Password" required>
+        <input type="password" id="confirm-password" class="password" name="confirmPassword" value="<?=$confirmPassword ?>" placeholder="Confirm Password" required>
       </div>
       <div class="form-group ">
        <div class="form-group user-profile-div">

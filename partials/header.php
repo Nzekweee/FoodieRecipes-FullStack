@@ -44,7 +44,7 @@ require 'config/database.php';
                          <img src="assets/avatar2.jpg" alt="avatar" draggable="false" class="rounded">
                      </div>
                      <ul class="flex-column">
-                         <li><a href="<?= ROOT_URL?>admin" class="nav__dash">Dashboard</a></li>
+                         <li><a href="<?= ROOT_URL?>dashboard" class="nav__dash">Dashboard</a></li>
                          <li><a href="<?= ROOT_URL?>logout.php" class="nav__logout">Logout</a></li>
                      </ul>
                 </li> -->

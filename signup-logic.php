@@ -33,16 +33,16 @@ $avatar = $_FILES['avatar'];
         $hashed_password = password_hash($createPassword, PASSWORD_DEFAULT);
 
         //username and email check
-        $user_check_query =  "SELECT * FROM users WHERE username= '$username' OR email = '$email'";
+        $user_check_query =  "SELECT * FROM user WHERE username= '$username' OR email = '$email'";
         $user_check_result = mysqli_query($connection, $user_check_query );
         if(mysqli_num_rows($user_check_result) > 0){
-            $_SESSION['sign-up'] = "Usernam or Email already exists";
+            $_SESSION['sign-up'] = "Username or Email already exists";
         }  else{
             //avatar
             $time = time();
             $avatar_name = $time . $avatar['name'];
             $avatar_temp_name = $avatar['tmp_name'];
-            $avatar_destination_path = 'images/' . $avatar_name;
+            $avatar_destination_path = 'assets/' . $avatar_name;
 
             //file should not be more than 2mb
             if($avatar['size'] < 2000000){
@@ -51,6 +51,25 @@ $avatar = $_FILES['avatar'];
                 $_SESSION['sign-up'] = "File size too big, file should be less than 2mb";
             }
         }
+    }
+  }
+
+  //redirect back to signup page if there's a problem
+  if(isset($_SESSION['sign-up'])){
+    //pass form data back to signup page
+    $_SESSION['signup-data'] = $_POST;
+    header('location: '. ROOT_URL . 'sign-up.php');
+    die();
+  }else{
+    //insert user into user table in database
+    $insert_user_query = "INSERT INTO user SET fullname='$fullname', username='$username', email='$email', password='$hashed_password', avatar='$avatar_name', is_admin = 0";
+    $insert_user_result = mysqli_query($connection, $insert_user_query);
+
+    if(!mysqli_errno($connection)){
+        //redirect to login page with success messaage
+        $_SESSION['signup-success'] = 'Registration successful. Welcome to FoodieRecipes!';
+        header('location: '. ROOT_URL . 'sign-in.php');
+        die();
     }
   }
 } else {
