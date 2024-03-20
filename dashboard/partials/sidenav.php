@@ -20,6 +20,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                             <span>Manage Recipes</span>
                         </a>
                     </li>
+                    <?php if(isset($_SESSION['user_is_admin'])) : ?>
                     <li>
                         <a href="<?= ROOT_URL?>dashboard/add-user.php" class="<?php echo $current_page === 'add-user.php' ? 'dashboard__sidebar-active' : ''; ?>">
                             <i class="fa-solid fa-user-plus"></i>
@@ -44,6 +45,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
                             <span>Manage Categories</span>
                         </a>
                     </li>
+                    <?php endif?>
                   </ul>
                 </aside>
+                
                 <section class="main__container">
+               
