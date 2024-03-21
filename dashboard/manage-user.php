@@ -19,6 +19,20 @@
                         unset($_SESSION['add-user-success']);
                         ?>
                        </div>
+                       <?php elseif(isset($_SESSION['edit-user-success'])) : ?>
+                       <div class="alert__message success">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['edit-user-success'];
+                       unset($_SESSION['edit-user-success']);
+                       ?>
+                      </div>
+                       <?php elseif(isset($_SESSION['edit-user'])) : ?>
+                       <div class="alert__message error">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['edit-user'];
+                       unset($_SESSION['edit-user']);
+                       ?>
+                      </div>
                        <?php endif ?>
                         <table>
                             <thead>
@@ -35,8 +49,8 @@
                                 <tr>
                                     <td><?= $user['fullname'] ?></td>
                                     <td><?= $user['username'] ?></td>
-                                    <td><a href="<?= ROOT_URL ?>admin/edit-user.php?id=<?=$user['id'] ?> " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-user.php " class="header__login-btn div-center del-btn">Delete</a></td>
+                                    <td><a href="<?= ROOT_URL ?>dashboard/edit-user.php?id=<?=$user['id'] ?> " class="edit-btn header__login-btn div-center">Edit</a></td>
+                                    <td><a href="<?= ROOT_URL?>dashboard/delete-user.php?id=<?=$user['id']?>" class="header__login-btn div-center del-btn">Delete</a></td>
                                     <td><?=$user['is_admin']? 'Yes' : 'No' ?> </td>
                                 </tr>
                                 <?php endwhile ?>

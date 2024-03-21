@@ -38,6 +38,10 @@ if(isset($_SESSION['user-id'])) {
                       echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . '">Home</a></li>';
                       echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . 'recipe.php">Recipes</a></li>';
                       echo '<li class="nav__items-active about"><a href="' . ROOT_URL . 'about.php">About us</a></li>';
+                  } else {
+                    echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . '">Home</a></li>';
+                    echo '<li class="nav__items-inactive"><a href="' . ROOT_URL . 'recipe.php">Recipes</a></li>';
+                    echo '<li class="nav__items-inactive about"><a href="' . ROOT_URL . 'about.php">About us</a></li>';
                   }
              ?>
 

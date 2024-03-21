@@ -13,7 +13,7 @@ $avatar = $_FILES['avatar'];
 
 //validating input values
   if (!$fullname) {
-    $_SESSION['sign-up'] = "Please enter your first name";
+    $_SESSION['sign-up'] = "Please enter your name";
   } elseif (!$username) {
     $_SESSION['sign-up'] = "Please enter your username";
   } elseif (!$email) {
