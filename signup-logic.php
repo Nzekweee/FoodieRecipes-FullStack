@@ -18,8 +18,6 @@ $avatar = $_FILES['avatar'];
     $_SESSION['sign-up'] = "Please enter your username";
   } elseif (!$email) {
     $_SESSION['sign-up'] = "Please enter a valid email";
-  } elseif (!$username) {
-    $_SESSION['sign-up'] = "Please enter your username";
   } elseif (strlen($createPassword) < 6 || strlen($confirmPassword) < 6) {
     $_SESSION['sign-up'] = "Password should have atleast 6 characters";
   } elseif (!$avatar['name']) {

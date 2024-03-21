@@ -456,6 +456,8 @@ list-style: square;
 }
 
 
+
+
 /* Media queries medium devices */
 @media screen and (max-width: 1024px) {
     h1{
