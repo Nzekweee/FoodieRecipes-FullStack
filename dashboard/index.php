@@ -16,7 +16,7 @@
                           </div>
                           <div class="form-group flex-column user-profile-div">
                             <label for="user-profile">Add a Photo</label>
-                            <input type="file" accept='image/*' id="user-avatar" required>
+                            <input type="file" accept='image/*' id="upload-picture" required>
                           </div>
                           <div class="form-group flex-column">
                             <label for="">Description</label>

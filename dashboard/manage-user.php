@@ -48,6 +48,7 @@
                        ?>
                       </div>
                        <?php endif ?>
+                       <?php if(mysqli_num_rows($users) > 0) : ?>
                         <table>
                             <thead>
                                 <tr>
@@ -70,7 +71,11 @@
                                 <?php endwhile ?>
                             </tbody>
                         </table>
-
+                        <?php else : ?>
+                       <div class="alert__message error">
+                          <p style="font-size: 14px; font-weight:600 ;"> No user found</p>
+                       </div>
+                       <?php endif ?>
                 </section>
 
 

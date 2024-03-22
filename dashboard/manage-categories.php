@@ -1,52 +1,96 @@
         <?php
          include './partials/header.php' ;
+
+            //  fetch all categories 
+             $current_admin_id = $_SESSION['user-id'];
+             $query = "SELECT * FROM categories ";
+             $categories = mysqli_query($connection, $query);
          ?>
         <?php
          include './partials/sidenav.php' ;
          ?>
                         <h4>Manage Category</h4>
+                        <?php if(isset($_SESSION['add-category-success'])) : ?>
+                        <div class="alert__message success">
+                        <p style="font-size: 14px; font-weight:600 ;">
+                        <?=  $_SESSION['add-category-success'];
+                        unset($_SESSION['add-category-success']);
+                        ?>
+                       </div>
+                       <?php elseif(isset($_SESSION['edit-category-success'])) : ?>
+                       <div class="alert__message success">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['edit-category-success'];
+                       unset($_SESSION['edit-category-success']);
+                       ?>
+                      </div>
+                       <?php elseif(isset($_SESSION['edit-category'])) : ?>
+                       <div class="alert__message error">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['edit-category'];
+                       unset($_SESSION['edit-category']);
+                       ?>
+                       </p>
+                       </div>
+                       <?php elseif(isset($_SESSION['delete-category-success'])) : ?>
+                       <div class="alert__message success">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['delete-category-success'];
+                       unset($_SESSION['delete-category-success']);
+                       ?>
+                      </div>
+                       <?php elseif(isset($_SESSION['delete-category'])) : ?>
+                       <div class="alert__message error">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['delete-category'];
+                       unset($_SESSION['delete-category']);
+                       ?>
+                      </div>
+
+                       <?php endif ?>
+                       <?php if(mysqli_num_rows($categories)>0) : ?>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Title</th>
+                                    <th>Category name</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Pasta</td>
-                                    <td><a href="./edit-category.php " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-category.php " class="header__login-btn div-center del-btn">Delete</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Pizza</td>
-                                    <td><a href="./edit-category.php " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-category.php " class="header__login-btn div-center del-btn">Delete</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Vegan</td>
-                                    <td><a href="./edit-category.php " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-category.php " class="header__login-btn div-center del-btn">Delete</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Desserts</td>
-                                    <td><a href="./edit-category.php " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-category.php " class="header__login-btn div-center del-btn">Delete</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Smoothies</td>
-                                    <td><a href="./edit-category.php " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-category.php " class="header__login-btn div-center del-btn">Delete</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Breakfast</td>
-                                    <td><a href="./edit-category.php " class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="delete-category.php " class="header__login-btn div-center del-btn">Delete</a></td>
-                                </tr>
-
+                            <?php
+                                $uncategorized = null;
+                                while($category = mysqli_fetch_assoc($categories)) {
+                                    if($category['cat_name'] == 'Uncategorized') {
+                                        $uncategorized = $category;
+                                    } else {
+                            ?>
+                             <tr>
+                                 <td><?= $category['cat_name'] ?></td>
+                                 <td><a href="<?= ROOT_URL ?>dashboard/edit-category.php?id=<?=$category['id'] ?>" class="edit-btn header__login-btn div-center">Edit</a></td>
+                                 <td><a href="<?= ROOT_URL?>dashboard/delete-category.php?id=<?=$category['id']?>" class="header__login-btn div-center del-btn">Delete</a></td>
+                             </tr>
+                            <?php
+                                    }
+                                }
+                                // After displaying other categories, if Uncategorized exists, display it
+                                if($uncategorized) {
+                             ?>
+                                  <tr>
+                                      <td><?= $uncategorized['cat_name'] ?></td>
+                                      <td>Cannot Edit</td>
+                                      <td>Cannot Delete</td>
+                                  </tr>
+                                 <?php
+                                     }
+                                 ?>
                             </tbody>
                         </table>
+                        <?php else : ?>
+                            <div class="alert__message error">
+                          <p style="font-size: 14px; font-weight:600 ;"> No Category Added Yet</p>
+                       </div>
+                       <?php endif ?>
 
                 </section>
 

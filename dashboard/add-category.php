@@ -25,7 +25,7 @@
                           </div>
                           <div class="form-group flex-column">
                             <label for="cat_desc">Description</label>
-                            <textarea id="cat_desc" cols="30" rows="10" placeholder="Describe Category" name='cat_desc' value="<?= $cat_desc?>"></textarea>
+                            <textarea id="cat_desc" cols="30" rows="10" placeholder="Describe Category" name='cat_desc'><?= $cat_desc?></textarea>
                           </div>
                         <div class="form-group flex-column">
                             <label for="">Category Image</label>
@@ -33,7 +33,7 @@
                           </div>
                           <div class="form-group flex-column user-profile-div" style="margin-bottom:30px ;">
                             <label for="cat-img">Add Category Image</label>
-                            <input type="file" accept='image/*' id="user-avatar" required name="cat_img">
+                            <input type="file" accept='image/*' id="upload-picture" required name="cat_img">
                           </div>
                            <button class="view-more-recipe-btn flex-row div-center" id="create-recipe" type="submit" name="submit">Create Category</button>
                       </form>

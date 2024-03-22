@@ -5,12 +5,14 @@
                 $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
                 $query = "SELECT * FROM user WHERE id=$id";
                 $result = mysqli_query($connection, $query);
-                $user = mysqli_fetch_assoc($result);
+                if(mysqli_num_rows($result) == 1){
+                  $user = mysqli_fetch_assoc($result);
+                }
               } 
-              // else{
-              //   header('location: '. ROOT_URL . 'dashboard/manage-user.php');
-              //   die();
-              // }
+              else{
+                header('location: '. ROOT_URL . 'dashboard/manage-user.php');
+                die();
+              }
               ?>
             <?php
             include './partials/sidenav.php' ;
@@ -36,7 +38,7 @@
                           </div>
                           <div class="form-group flex-column user-profile-div">
                             <label for="user-profile">change profile picture</label>
-                            <input type="file" accept='image/*' id="user-avatar" name="avatar" value="<?= ROOT_URL . 'assets/' . $user['avatar']?>" required>
+                            <input type="file" accept='image/*' id="upload-picture" name="avatar" value="<?= ROOT_URL . 'assets/' . $user['avatar']?>" required>
                           </div>
                            <select name="userrole" id="user-role" >
                             <option value="0" class="select-title">Change user role</option>

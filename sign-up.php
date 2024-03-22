@@ -59,7 +59,7 @@ $confirmPassword = $_SESSION['signup-data']['confirmPassword'] ?? null;
       <div class="form-group ">
        <div class="form-group user-profile-div">
         <label for="avatar">User Profile Picture</label>
-        <input type="file" accept='image/*' id="user-avatar" name="avatar" required>
+        <input type="file" accept='image/*' id="upload-picture" name="avatar" required>
        </div>
       <div class="form-group flex-row div-center terms__box">
         <div class="signup-checkbox">

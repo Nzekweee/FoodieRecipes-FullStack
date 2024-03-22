@@ -15,17 +15,25 @@ if(isset($_POST['submit'])){
     } elseif (!$cat_img['name']) {
         $_SESSION['add-category'] = "Please add an image";
     } else {
+
+        //check if category name exist
+        $category_check_query =  "SELECT * FROM categories WHERE cat_name= '$cat_name' ";
+        $category_check_result = mysqli_query($connection, $category_check_query );
+        if(mysqli_num_rows($category_check_result) > 0){
+            $_SESSION['add-category'] = "Category  name already exists";
+        }  else{
         // Cat_img
         $time = time();
         $cat_img_name = $time . $cat_img['name'];
         $cat_img_temp_name = $cat_img['tmp_name'];
         $cat_img_destination_path = '../assets/' . $cat_img_name;
-
-        // File should not be more than 2mb
-        if($cat_img['size'] < 2000000){
-            move_uploaded_file($cat_img_temp_name, $cat_img_destination_path);
-        } else {
-            $_SESSION['add-category'] = "File size too big, file should be less than 2mb";
+         // File should not be more than 2mb
+         if($cat_img['size'] < 2000000){
+             move_uploaded_file($cat_img_temp_name, $cat_img_destination_path);
+         } else {
+             $_SESSION['add-category'] = "File size too big, file should be less than 2mb";
+         }
+            
         }
     }
 
@@ -39,8 +47,12 @@ if(isset($_POST['submit'])){
         // Insert category into categories table in database
         $insert_category_query = "INSERT INTO categories SET cat_name='$cat_name', cat_desc='$cat_desc', cat_img='$cat_img_name'";
         $insert_category_result = mysqli_query($connection, $insert_category_query);
-
-        if(!mysqli_errno($connection)){
+        if(!$insert_category_result || mysqli_errno($connection)){
+            $_SESSION['add-category-error'] = "Couldn't create category: " . mysqli_error($connection);
+            $_SESSION['add-category-data'] = $_POST;
+            header('location: '. ROOT_URL . 'dashboard/add-category.php');
+            die();
+        } else{
             // Redirect on success
             $_SESSION['add-category-success'] = "New category '$cat_name' added successfully";
             header('location: '. ROOT_URL . 'dashboard/manage-categories.php');

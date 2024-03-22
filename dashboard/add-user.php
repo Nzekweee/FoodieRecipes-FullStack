@@ -50,7 +50,7 @@
           </div>
           <div class="form-group flex-column user-profile-div">
             <label for="user-profile">Add user profile picture</label>
-            <input type="file" accept='image/*' id="user-avatar" name="avatar" required>
+            <input type="file" accept='image/*' id="upload-picture" name="avatar" required>
           </div>
            <select name="userrole" id="user-role">
             <option value="0" class="select-title">Choose a user role</option>
