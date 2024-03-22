@@ -1,27 +1,31 @@
          <?php
          include './partials/header.php' ;
+
+          //get form dats back if redirect
+          $cat_name = $_SESSION['add-category-data']['cat_name'] ?? null;
+          $cat_desc = $_SESSION['add-category-data']['cat_desc'] ?? null;
          ?>
         <?php
          include './partials/sidenav.php' ;
          ?>
                         <h4>Add Category</h4>
-                        <?php if (isset($_SESSION['add-user'])) : ?>
-      <div class="alert__message error">
-        <p style="font-size: 14px; font-weight:600 ;">
-          <?=  $_SESSION['add-user'];
-          unset($_SESSION['add-user']);
-          ?>
-        </p>
-    </div>
-    <?php endif ?>
+                        <?php if (isset($_SESSION['add-category'])) : ?>
+                            <div class="alert__message error">
+                              <p style="font-size: 14px; font-weight:600 ;">
+                                <?=  $_SESSION['add-category'];
+                                unset($_SESSION['add-category']);
+                                ?>
+                              </p>
+                            </div>
+                            <?php endif ?>
                       <form action="<?=ROOT_URL ?>dashboard/add-category-logic.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group flex-column">
                            <label for="cat-name">Category Name</label>
-                           <input type="text" id="cat-name" name="cat_name" placeholder="Name of Category" required >
+                           <input type="text" id="cat-name" name="cat_name" value="<?= $cat_name?>" placeholder="Name of Category" >
                           </div>
                           <div class="form-group flex-column">
                             <label for="cat_desc">Description</label>
-                            <textarea id="cat_desc" cols="30" rows="10" placeholder="Describe Category" name='cat_desc' required></textarea>
+                            <textarea id="cat_desc" cols="30" rows="10" placeholder="Describe Category" name='cat_desc' value="<?= $cat_desc?>"></textarea>
                           </div>
                         <div class="form-group flex-column">
                             <label for="">Category Image</label>
