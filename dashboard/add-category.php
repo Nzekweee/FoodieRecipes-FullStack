@@ -5,14 +5,23 @@
          include './partials/sidenav.php' ;
          ?>
                         <h4>Add Category</h4>
-                      <form action="">
+                        <?php if (isset($_SESSION['add-user'])) : ?>
+      <div class="alert__message error">
+        <p style="font-size: 14px; font-weight:600 ;">
+          <?=  $_SESSION['add-user'];
+          unset($_SESSION['add-user']);
+          ?>
+        </p>
+    </div>
+    <?php endif ?>
+                      <form action="<?=ROOT_URL ?>dashboard/add-category-logic.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group flex-column">
                            <label for="cat-name">Category Name</label>
-                           <input type="text" id="cat-name" name="cat-name" placeholder="Name of Category" required >
+                           <input type="text" id="cat-name" name="cat_name" placeholder="Name of Category" required >
                           </div>
                           <div class="form-group flex-column">
-                            <label for="email">Description</label>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Describe Category"></textarea>
+                            <label for="cat_desc">Description</label>
+                            <textarea id="cat_desc" cols="30" rows="10" placeholder="Describe Category" name='cat_desc' required></textarea>
                           </div>
                         <div class="form-group flex-column">
                             <label for="">Category Image</label>
@@ -20,9 +29,9 @@
                           </div>
                           <div class="form-group flex-column user-profile-div" style="margin-bottom:30px ;">
                             <label for="cat-img">Add Category Image</label>
-                            <input type="file" accept='image/*' id="user-avatar" required>
+                            <input type="file" accept='image/*' id="user-avatar" required name="cat_img">
                           </div>
-                           <button class="view-more-recipe-btn flex-row div-center" id="create-recipe">Create Category</button>
+                           <button class="view-more-recipe-btn flex-row div-center" id="create-recipe" type="submit" name="submit">Create Category</button>
                       </form>
                 </section>
 

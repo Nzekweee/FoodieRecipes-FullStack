@@ -33,6 +33,20 @@
                        unset($_SESSION['edit-user']);
                        ?>
                       </div>
+                      <?php elseif(isset($_SESSION['delete-user-success'])) : ?>
+                       <div class="alert__message success">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['delete-user-success'];
+                       unset($_SESSION['delete-user-success']);
+                       ?>
+                      </div>
+                       <?php elseif(isset($_SESSION['delete-user'])) : ?>
+                       <div class="alert__message error">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['delete-user'];
+                       unset($_SESSION['delete-user']);
+                       ?>
+                      </div>
                        <?php endif ?>
                         <table>
                             <thead>
