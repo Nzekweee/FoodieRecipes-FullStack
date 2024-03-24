@@ -10,11 +10,11 @@
          include './partials/sidenav.php' ;
          ?>
                         <h4>Manage Category</h4>
-                        <?php if(isset($_SESSION['add-category-success'])) : ?>
+                        <?php if(isset($_SESSION['add-recipe-success'])) : ?>
                         <div class="alert__message success">
                         <p style="font-size: 14px; font-weight:600 ;">
-                        <?=  $_SESSION['add-category-success'];
-                        unset($_SESSION['add-category-success']);
+                        <?=  $_SESSION['add-recipe-success'];
+                        unset($_SESSION['add-recipe-success']);
                         ?>
                        </div>
                        <?php elseif(isset($_SESSION['edit-category-success'])) : ?>
@@ -73,7 +73,6 @@
                             <?php
                                     }
                                 }
-                                // After displaying other categories, if Uncategorized exists, display it
                                 if($uncategorized) {
                              ?>
                                   <tr>
@@ -93,8 +92,6 @@
                        <?php endif ?>
 
                 </section>
-
-
          </main>
          <script type="module" src="../javascript/main.js"></script>
 </body>

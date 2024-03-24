@@ -77,8 +77,7 @@ if(sideBar){
 
         const newIngredientInput = document.createElement('input');
         newIngredientInput.type = 'text';
-        newIngredientInput.classList.add('recipeIngredients');
-        newIngredientInput.name = 'recipeIngredients';
+        newIngredientInput.name = 'ingredients[]';
         newIngredientInput.placeholder = 'Add Ingredient';
         newIngredientInput.required = true;
 
@@ -103,9 +102,9 @@ if(sideBar){
           newDirectionArticle.innerHTML = `
               <div class="direction-title-cont flex-row">
                   <span>Step ${stepCounter}</span>
-                  <input type="text" class="direction-tile" name="direction-tile" placeholder="What's step ${stepCounter}" required>
+                  <input type="text" name="directions[${stepCounter}][title]" placeholder="What's step ${stepCounter}" required>
               </div>
-              <textarea name="" cols="30" rows="10" placeholder="Describe the step"></textarea>
+              <textarea cols="30" rows="10" name="directions[${stepCounter}][description]" placeholder="Describe the step"></textarea>
           `;
           stepCounter++;
           directionsContainer.appendChild(newDirectionArticle);

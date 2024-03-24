@@ -5,6 +5,14 @@
         include './partials/sidenav.php' ;
         ?>
                         <h4>Manage Recipes</h4>
+                        <?php if(isset($_SESSION['add-recipe-success'])) : ?>
+                        <div class="alert__message success">
+                        <p style="font-size: 14px; font-weight:600 ;">
+                        <?=  $_SESSION['add-recipe-success'];
+                        unset($_SESSION['add-recipe-success']);
+                        ?>
+                        </div>
+                        <?php endif ?>
                         <table>
                             <thead>
                                 <tr>
