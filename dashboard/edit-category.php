@@ -10,7 +10,7 @@
           }
         } 
         else{
-          header('location: '. ROOT_URL . 'dashboard/manage-user.php');
+          header('location: '. ROOT_URL . 'dashboard/manage-categories.php');
           die();
         }
          ?>
@@ -30,7 +30,7 @@
                           </div>
                         <div class="form-group flex-column">
                             <label for="">Category Image</label>
-                            <input type="image" id="recipe-img" alt="Image" src="../assets/photo-placeholder.png" disabled>
+                            <input type="image" id="recipe-img" alt="Image" src="<?= ROOT_URL . 'assets/' . $category['cat_imgm']?>" disabled>
                           </div>
                           <div class="form-group flex-column user-profile-div" style="margin-bottom:30px ;">
                             <label for="cat-img">Change Category Image</label>

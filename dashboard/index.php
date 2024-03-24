@@ -5,6 +5,11 @@
          $query = "SELECT * FROM categories";
          $categories = mysqli_query($connection,$query);
 
+         $title = $_SESSION['add-recipe-data']['title'] ?? null;
+         $recipe_desc = $_SESSION['add-recipe-data']['recipe_desc'] ?? null;
+         $prep_time = $_SESSION['add-recipe-data']['prep_time'] ?? null;
+         $cook_time = $_SESSION['add-recipe-data']['cook_time'] ?? null;
+
          ?>
                   <?php
          include './partials/sidenav.php' ;
@@ -22,7 +27,7 @@
                       <form action="<?=ROOT_URL ?>dashboard/add-recipe-logic.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group flex-column">
                            <label for="">Recipe Title</label>
-                            <input type="text" id="recipeTitle" name="title" placeholder="Your recipe's title" required>
+                            <input type="text" id="recipeTitle" name="title" value="<?=$title ?>" placeholder="Your recipe's title" required>
                           </div>
                         <div class="form-group flex-column">
                             <label for="">Recipe Img</label>
@@ -34,7 +39,7 @@
                           </div>
                           <div class="form-group flex-column">
                             <label for="">Description</label>
-                             <input type="text" id="recipeDesc" name="recipe_desc" placeholder="Introduce your recipe" required>
+                             <input type="text" id="recipeDesc" name="recipe_desc" value="<?=$recipe_desc ?>"  placeholder="Introduce your recipe" required>
                            </div>
                            <div class="form-group flex-column ingredient__cont">
                             <label for="">Ingredients</label>
@@ -56,7 +61,7 @@
                                      <input type="text" 
                                      name="directions[1][title]" placeholder="What's step 1" required>
                                     </div>
-                                    <textarea  id="" cols="30" rows="10" placeholder="Describe the step" name="directions[1][description]" ></textarea>
+                                    <textarea  cols="30" rows="10" placeholder="Describe the step" name="directions[1][description]" ></textarea>
                               </article>
                             </div>
                           <section class="flex-row space-between">
@@ -72,11 +77,11 @@
                            </div>
                            <div class="form-group flex-column">
                             <label for="">Prep Time in mins</label>
-                             <input type="number" id="prepTime" name="prep_time" required>
+                             <input type="number" id="prepTime" name="prep_time" value="<?=$prep_time ?>"  required>
                            </div>
                            <div class="form-group flex-column">
                             <label for="">Cook Time in mins</label>
-                             <input type="number" id="cookTime" name="cook_time" required>
+                             <input type="number" id="cookTime" name="cook_time" value="<?=$cook_time ?>"  required>
                            </div>
                            <select name="category">
                             <option value="26" class="select-title">Choose a Category</option>

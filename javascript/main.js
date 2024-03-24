@@ -18,6 +18,7 @@ fileInput = document.getElementById('upload-picture'),
 recipeImg = document.getElementById('recipe-img'),
 addIngBtn = document.querySelector('.add-ing'),
 ingredientCont = document.querySelector('.ingredient__cont'),
+stepCounterSpan = document.querySelectorAll('.step_counter'),
 addDirBtn = document.querySelector('.add-dir'),
 removeDirBtn = document.querySelector('.remove-dir'),
 directionsContainer = document.querySelector('.directions-cont');
@@ -95,7 +96,16 @@ if(sideBar){
 
 
          // Create and removea article  element for directions
-      let stepCounter = 2; 
+
+         let nextStepCounter ;
+         let stepCounter;
+
+         if(stepCounterSpan && stepCounterSpan.length > 0){
+          nextStepCounter = parseInt(stepCounterSpan[stepCounterSpan.length - 1]?.innerHTML) + 1 ;
+          stepCounter = nextStepCounter ;
+         } else {
+          stepCounter = 2;
+         }
   
       addDirBtn? addDirBtn.addEventListener('click', function() {
           const newDirectionArticle = document.createElement('article');

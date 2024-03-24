@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
     
   }
 
-  //redirect back to editcategory page if there's a problem
+  //redirect back  if there's a problem
   if(isset($_SESSION['edit-category'])){
          
         header('location: '. ROOT_URL . 'dashboard/manage-categories.php');
