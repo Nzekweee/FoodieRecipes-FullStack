@@ -99,24 +99,28 @@ if(sideBar){
 
          let nextStepCounter ;
          let stepCounter;
+         let steps;
 
          if(stepCounterSpan && stepCounterSpan.length > 0){
-          nextStepCounter = parseInt(stepCounterSpan[stepCounterSpan.length - 1]?.innerHTML) + 1 ;
+          nextStepCounter = parseInt(stepCounterSpan[stepCounterSpan.length - 1]?.innerHTML) + 2;
           stepCounter = nextStepCounter ;
+          steps = parseInt(stepCounterSpan[stepCounterSpan.length - 1]?.innerHTML) + 1
          } else {
           stepCounter = 2;
+          steps = stepCounter
          }
   
       addDirBtn? addDirBtn.addEventListener('click', function() {
           const newDirectionArticle = document.createElement('article');
           newDirectionArticle.innerHTML = `
               <div class="direction-title-cont flex-row">
-                  <span>Step ${stepCounter}</span>
-                  <input type="text" name="directions[${stepCounter}][title]" placeholder="What's step ${stepCounter}" required>
+                  <span>Step ${steps}</span>
+                  <input type="text" name="directions[${stepCounter}][title]" placeholder="What's step ${steps}" required>
               </div>
               <textarea cols="30" rows="10" name="directions[${stepCounter}][description]" placeholder="Describe the step"></textarea>
           `;
           stepCounter++;
+          steps++
           directionsContainer.appendChild(newDirectionArticle);
       }) : null ;
   

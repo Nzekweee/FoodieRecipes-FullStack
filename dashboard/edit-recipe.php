@@ -35,7 +35,7 @@
                           </div>
                         <div class="form-group flex-column">
                             <label for="">Recipe Img</label>
-                            <input type="image" id="recipe-img" alt="Image" src="../assets/photo-placeholder.png" disabled>
+                            <input type="image" id="recipe-img" alt="Image" src="<?= ROOT_URL . 'assets/' . $recipe['thumbnail']?>" disabled>
                           </div>
                           <div class="form-group flex-column user-profile-div">
                             <label for="user-profile">Change Photo</label>

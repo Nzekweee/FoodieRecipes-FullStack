@@ -16,6 +16,7 @@
                         <?=  $_SESSION['add-recipe-success'];
                         unset($_SESSION['add-recipe-success']);
                         ?>
+                        </p>
                        </div>
                        <?php elseif(isset($_SESSION['edit-category-success'])) : ?>
                        <div class="alert__message success">
@@ -23,6 +24,7 @@
                        <?=  $_SESSION['edit-category-success'];
                        unset($_SESSION['edit-category-success']);
                        ?>
+                       </p>
                       </div>
                        <?php elseif(isset($_SESSION['edit-category'])) : ?>
                        <div class="alert__message error">
@@ -38,6 +40,7 @@
                        <?=  $_SESSION['delete-category-success'];
                        unset($_SESSION['delete-category-success']);
                        ?>
+                       </p>
                       </div>
                        <?php elseif(isset($_SESSION['delete-category'])) : ?>
                        <div class="alert__message error">
@@ -45,6 +48,7 @@
                        <?=  $_SESSION['delete-category'];
                        unset($_SESSION['delete-category']);
                        ?>
+                       </p>
                       </div>
 
                        <?php endif ?>

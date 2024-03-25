@@ -29,6 +29,7 @@ if(isset($_POST['submit'])) {
         $_SESSION['edit-recipe'] = "Please add a Thumbnail";
       } else {
               if(file_exists($old_thumbnail)) {
+                 $old_thumbnail_path = '../assets/' . $thumbnail_name;
                   unlink($old_thumbnail); 
               }  
               // Handle image upload
@@ -84,7 +85,7 @@ if(isset($_POST['submit'])) {
          
                 if(!mysqli_errno($connection)){
                     //redirect 
-                    $_SESSION['edit-recipe-success'] = "Recipe Added sucessfully ";
+                    $_SESSION['edit-recipe-success'] = "Recipe Updated sucessfully ";
                     header('location: '. ROOT_URL . 'dashboard/manage-recipes.php');
                     die();
                 } else{

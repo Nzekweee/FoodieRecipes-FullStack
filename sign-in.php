@@ -36,6 +36,7 @@ unset($_SESSION['signin-data'])
           <?=  $_SESSION['sign-in'];
           unset($_SESSION['sign-in']);
           ?>
+          </p>
         </div>
         <?php endif ?>
         <form action="<?= ROOT_URL ?>signin-logic.php"  method="POST">

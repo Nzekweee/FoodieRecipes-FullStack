@@ -19,6 +19,7 @@
                         <?=  $_SESSION['add-recipe-success'];
                         unset($_SESSION['add-recipe-success']);
                         ?>
+                        </p>
                         </div>
                         <?php elseif(isset($_SESSION['edit-recipe-success'])) : ?>
                        <div class="alert__message success">
@@ -26,6 +27,7 @@
                        <?=  $_SESSION['edit-recipe-success'];
                        unset($_SESSION['edit-recipe-success']);
                        ?>
+                       </p>
                       </div>
                        <?php elseif(isset($_SESSION['edit-recipe'])) : ?>
                        <div class="alert__message error">
@@ -33,6 +35,8 @@
                        <?=  $_SESSION['edit-recipe'];
                        unset($_SESSION['edit-recipe']);
                        ?>
+                       </p>
+                       </div>
                         <?php endif ?>
                         <?php if(mysqli_num_rows($recipes)>0 || mysqli_num_rows($all_recipes)>0 ) : ?>
                         <table>

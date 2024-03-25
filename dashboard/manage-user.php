@@ -18,6 +18,7 @@
                         <?=  $_SESSION['add-user-success'];
                         unset($_SESSION['add-user-success']);
                         ?>
+                        </p>
                        </div>
                        <?php elseif(isset($_SESSION['edit-user-success'])) : ?>
                        <div class="alert__message success">
@@ -25,6 +26,7 @@
                        <?=  $_SESSION['edit-user-success'];
                        unset($_SESSION['edit-user-success']);
                        ?>
+                       </p>
                       </div>
                        <?php elseif(isset($_SESSION['edit-user'])) : ?>
                        <div class="alert__message error">
@@ -32,6 +34,7 @@
                        <?=  $_SESSION['edit-user'];
                        unset($_SESSION['edit-user']);
                        ?>
+                       </p>
                       </div>
                       <?php elseif(isset($_SESSION['delete-user-success'])) : ?>
                        <div class="alert__message success">
@@ -39,6 +42,7 @@
                        <?=  $_SESSION['delete-user-success'];
                        unset($_SESSION['delete-user-success']);
                        ?>
+                       </p>
                       </div>
                        <?php elseif(isset($_SESSION['delete-user'])) : ?>
                        <div class="alert__message error">
@@ -46,6 +50,7 @@
                        <?=  $_SESSION['delete-user'];
                        unset($_SESSION['delete-user']);
                        ?>
+                       </p>
                       </div>
                        <?php endif ?>
                        <?php if(mysqli_num_rows($users) > 0) : ?>
