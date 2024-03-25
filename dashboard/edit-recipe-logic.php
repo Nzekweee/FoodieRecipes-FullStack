@@ -28,10 +28,7 @@ if(isset($_POST['submit'])) {
       } elseif (!$thumbnail['name']) {
         $_SESSION['edit-recipe'] = "Please add a Thumbnail";
       } else {
-              if(file_exists($old_thumbnail)) {
-                 $old_thumbnail_path = '../assets/' . $thumbnail_name;
-                  unlink($old_thumbnail); 
-              }  
+               
               // Handle image upload
               $time = time();
               $thumbnail_name = $time . $thumbnail['name'];
@@ -39,7 +36,7 @@ if(isset($_POST['submit'])) {
               $thumbnail_destination_path = '../assets/' . $thumbnail_name;
                        // File should not be more than 2mb
               if($thumbnail['size'] < 2000000){
-                 move_uploaded_file($thumbnail_name, $thumbnail_destination_path);
+                 move_uploaded_file($thumbnail_temp_name, $thumbnail_destination_path);
              } else {
               $_SESSION['edit-recipe'] = "Thumbnail: File size is too big, file should be less than 2mb";
               }
@@ -56,6 +53,8 @@ if(isset($_POST['submit'])) {
         $update_recipe_result = mysqli_query($connection, $update_recipe_query);
     
     if(!mysqli_errno($connection)){
+               $old_thumbnail_path = '../assets/' . $old_thumbnail;
+               unlink($old_thumbnail_path); 
 
                  // Delete all previous ingredients associated with the recipe
                 $delete_previous_ingredients_query = "DELETE FROM ingredients WHERE recipe_id = '$recipe_id'";

@@ -35,7 +35,7 @@ if(isset($_POST['submit'])) {
     $thumbnail_destination_path = '../assets/' . $thumbnail_name;
              // File should not be more than 2mb
         if($thumbnail['size'] < 2000000){
-           move_uploaded_file($thumbnail_name, $thumbnail_destination_path);
+           move_uploaded_file($thumbnail_temp_name, $thumbnail_destination_path);
        } else {
         $_SESSION['add-recipe'] = "Thumbnail: File size is too big, file should be less than 2mb";
         }
