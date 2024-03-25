@@ -37,6 +37,22 @@
                        ?>
                        </p>
                        </div>
+                       <?php elseif(isset($_SESSION['delete-recipe-success'])) : ?>
+                       <div class="alert__message success">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['delete-recipe-success'];
+                       unset($_SESSION['delete-recipe-success']);
+                       ?>
+                       </p>
+                      </div>
+                       <?php elseif(isset($_SESSION['delete-recipe'])) : ?>
+                       <div class="alert__message error">
+                       <p style="font-size: 14px; font-weight:600 ;">
+                       <?=  $_SESSION['delete-recipe'];
+                       unset($_SESSION['delete-recipe']);
+                       ?>
+                       </p>
+                      </div>
                         <?php endif ?>
                         <?php if(mysqli_num_rows($recipes)>0 || mysqli_num_rows($all_recipes)>0 ) : ?>
                         <table>
@@ -55,7 +71,7 @@
                                     <td><?= $all_recipe['title'] ?></td>
                                     <td><?= $all_recipe['cat_name'] ?></td>
                                     <td><a href="<?= ROOT_URL ?>dashboard/edit-recipe.php?id=<?=$all_recipe['id'] ?>" class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="<?= ROOT_URL?>dashboard/delete-user.php?id=<?=$all_recipe['id']?> " class="header__login-btn div-center del-btn">Delete</a></td>
+                                    <td><a href="<?= ROOT_URL?>dashboard/delete-recipe.php?id=<?=$all_recipe['id']?> " class="header__login-btn div-center del-btn">Delete</a></td>
                                 </tr>
                             <?php endwhile ?>
                             <?php else : ?>
@@ -64,7 +80,7 @@
                                     <td><?= $recipe['title'] ?></td>
                                     <td><?= $recipe['cat_name'] ?></td>
                                     <td><a href="<?= ROOT_URL ?>dashboard/edit-recipe.php?id=<?=$recipe['id'] ?>" class="edit-btn header__login-btn div-center">Edit</a></td>
-                                    <td><a href="<?= ROOT_URL?>dashboard/delete-user.php?id=<?=$recipe['id']?> " class="header__login-btn div-center del-btn">Delete</a></td>
+                                    <td><a href="<?= ROOT_URL?>dashboard/delete-recipe.php?id=<?=$recipe['id']?> " class="header__login-btn div-center del-btn">Delete</a></td>
                                 </tr>
                             <?php endwhile ?>
                             <?php endif ?>

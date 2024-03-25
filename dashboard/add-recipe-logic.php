@@ -34,11 +34,9 @@ if(isset($_POST['submit'])) {
     $thumbnail_temp_name = $thumbnail['tmp_name'];
     $thumbnail_destination_path = '../assets/' . $thumbnail_name;
              // File should not be more than 2mb
-        if($thumbnail['size'] < 2000000){
-           move_uploaded_file($thumbnail_temp_name, $thumbnail_destination_path);
-       } else {
-        $_SESSION['add-recipe'] = "Thumbnail: File size is too big, file should be less than 2mb";
-        }
+        if($thumbnail['size'] > 2000000){
+          $_SESSION['add-recipe'] = "Thumbnail: File size is too big, file should be less than 2mb";
+       } 
     }
     
 
@@ -80,6 +78,7 @@ if(isset($_POST['submit'])) {
                 //redirect 
                 $_SESSION['add-recipe-success'] = "Recipe Added sucessfully ";
                 header('location: '. ROOT_URL . 'dashboard/manage-recipes.php');
+                move_uploaded_file($thumbnail_temp_name, $thumbnail_destination_path);
                 die();
             }
         } else {

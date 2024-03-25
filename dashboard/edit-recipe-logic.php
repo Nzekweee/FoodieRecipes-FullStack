@@ -28,18 +28,17 @@ if(isset($_POST['submit'])) {
       } elseif (!$thumbnail['name']) {
         $_SESSION['edit-recipe'] = "Please add a Thumbnail";
       } else {
-               
+
               // Handle image upload
               $time = time();
               $thumbnail_name = $time . $thumbnail['name'];
               $thumbnail_temp_name = $thumbnail['tmp_name'];
               $thumbnail_destination_path = '../assets/' . $thumbnail_name;
                        // File should not be more than 2mb
-              if($thumbnail['size'] < 2000000){
-                 move_uploaded_file($thumbnail_temp_name, $thumbnail_destination_path);
-             } else {
-              $_SESSION['edit-recipe'] = "Thumbnail: File size is too big, file should be less than 2mb";
-              }
+              if($thumbnail['size'] > 2000000){
+                $_SESSION['edit-recipe'] = "Thumbnail: File size is too big, file should be less than 2mb";
+
+             } 
     }
 
 
@@ -52,9 +51,7 @@ if(isset($_POST['submit'])) {
         $update_recipe_query = "UPDATE recipes SET title = '$title',thumbnail = '$thumbnail_name' ,recipe_desc = '$recipe_desc', prep_time = '$prep_time', cook_time = '$cook_time', category_id = '$category_id' WHERE id = '$recipe_id'";
         $update_recipe_result = mysqli_query($connection, $update_recipe_query);
     
-    if(!mysqli_errno($connection)){
-               $old_thumbnail_path = '../assets/' . $old_thumbnail;
-               unlink($old_thumbnail_path); 
+    if($update_recipe_query){
 
                  // Delete all previous ingredients associated with the recipe
                 $delete_previous_ingredients_query = "DELETE FROM ingredients WHERE recipe_id = '$recipe_id'";
@@ -86,9 +83,17 @@ if(isset($_POST['submit'])) {
                     //redirect 
                     $_SESSION['edit-recipe-success'] = "Recipe Updated sucessfully ";
                     header('location: '. ROOT_URL . 'dashboard/manage-recipes.php');
+                    move_uploaded_file($thumbnail_temp_name, $thumbnail_destination_path);
+                    $old_thumbnail_path = '../assets/' . $old_thumbnail;
+                    if($old_thumbnail_path) {
+                      unlink($old_thumbnail_path);
+                    }
+
                     die();
                 } else{
                     $_SESSION['edit-recipe'] = "Failed to  update ingredients and direction ";
+                    header('location: '. ROOT_URL . 'dashboard/manage-recipes.php');
+                    die();
                 }
 
 } else {
