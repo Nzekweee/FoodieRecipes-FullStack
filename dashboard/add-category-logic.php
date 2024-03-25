@@ -28,12 +28,9 @@ if(isset($_POST['submit'])){
         $cat_img_temp_name = $cat_img['tmp_name'];
         $cat_img_destination_path = '../assets/' . $cat_img_name;
          // File should not be more than 2mb
-         if($cat_img['size'] < 2000000){
-             move_uploaded_file($cat_img_temp_name, $cat_img_destination_path);
-         } else {
+         if($cat_img['size'] > 2000000){
              $_SESSION['add-category'] = "File size too big, file should be less than 2mb";
-         }
-            
+         } 
         }
     }
 
@@ -56,6 +53,7 @@ if(isset($_POST['submit'])){
             // Redirect on success
             $_SESSION['add-category-success'] = "New category '$cat_name' added successfully";
             header('location: '. ROOT_URL . 'dashboard/manage-categories.php');
+            move_uploaded_file($cat_img_temp_name, $cat_img_destination_path);
             die();
         }
     }

@@ -71,28 +71,42 @@ if(sideBar){
 }) : null;
 
    // Create a new ingredient input field
-    addIngBtn ? addIngBtn.addEventListener('click', function() {
-        // Create a new ingredient input field
-        const newIngredientGroup = document.createElement('div');
-        newIngredientGroup.classList.add('recipe-ing-group', 'flex-row');
+// Function to handle removing ingredient groups
+const handleRemoveIngredient = (e) => {
+  const clickedRemoveIcon = e.target;
+  const ingredientGroupToRemove = clickedRemoveIcon.closest('.recipe-ing-group');
+  if (ingredientGroupToRemove) {
+      ingredientGroupToRemove.remove();
+  }
+}
 
-        const newIngredientInput = document.createElement('input');
-        newIngredientInput.type = 'text';
-        newIngredientInput.name = 'ingredients[]';
-        newIngredientInput.placeholder = 'Add Ingredient';
-        newIngredientInput.required = true;
+// Create a new ingredient input field
+addIngBtn ? addIngBtn.addEventListener('click', function() {
+  // Create a new ingredient input field
+  const newIngredientGroup = document.createElement('div');
+  newIngredientGroup.classList.add('recipe-ing-group', 'flex-row');
 
-        const removeIcon = document.createElement('i');
-        removeIcon.classList.add('fa-solid', 'fa-trash', 'remove-ing');
-        removeIcon.addEventListener('click', function() {
-            ingredientCont.removeChild(newIngredientGroup);
-        });
+  const newIngredientInput = document.createElement('input');
+  newIngredientInput.type = 'text';
+  newIngredientInput.name = 'ingredients[]';
+  newIngredientInput.placeholder = 'Add Ingredient';
+  newIngredientInput.required = true;
 
-        newIngredientGroup.appendChild(newIngredientInput);
-        newIngredientGroup.appendChild(removeIcon);
+  const removeIcon = document.createElement('i');
+  removeIcon.classList.add('fa-solid', 'fa-trash', 'remove-ing');
+  removeIcon.addEventListener('click', handleRemoveIngredient);
 
-        ingredientCont.insertBefore(newIngredientGroup, addIngBtn);
-    }) : null ;
+  newIngredientGroup.appendChild(newIngredientInput);
+  newIngredientGroup.appendChild(removeIcon);
+
+  ingredientCont.insertBefore(newIngredientGroup, addIngBtn);
+}) : null ;
+
+// Add event listeners to dynamically generated remove icons
+document.querySelectorAll('.remove-ing').forEach(function(removeIcon) {
+  removeIcon.addEventListener('click', handleRemoveIngredient);
+});
+
 
 
          // Create and removea article  element for directions

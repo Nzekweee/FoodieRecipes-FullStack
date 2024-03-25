@@ -10,11 +10,11 @@
          include './partials/sidenav.php' ;
          ?>
                         <h4>Manage Category</h4>
-                        <?php if(isset($_SESSION['add-recipe-success'])) : ?>
+                        <?php if(isset($_SESSION['add-category-success'])) : ?>
                         <div class="alert__message success">
                         <p style="font-size: 14px; font-weight:600 ;">
-                        <?=  $_SESSION['add-recipe-success'];
-                        unset($_SESSION['add-recipe-success']);
+                        <?=  $_SESSION['add-category-success'];
+                        unset($_SESSION['add-category-success']);
                         ?>
                         </p>
                        </div>

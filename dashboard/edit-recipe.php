@@ -50,7 +50,7 @@
                             <?php while($ingredient = mysqli_fetch_assoc($ingrdients_query_result)) : ?>
                               <div class="recipe-ing-group flex-row">
                                 <input type="text" name="ingredients[]" value="<?=$ingredient['ingredient'] ?>" placeholder="Update Ingredient" required>
-                                <i class="fa-solid fa-trash remove-ing"></i>
+                                <i class="fa-solid fa-trash remove-ing "></i>
                              </div>
                             <?php endwhile ?>
                              <section class="add-ing">
