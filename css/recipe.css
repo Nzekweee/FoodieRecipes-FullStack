@@ -111,7 +111,7 @@ margin-bottom: 40px;
 
 
 .recipe-details-section{
-  gap: 50px;
+  gap: 45px;
 }
 
 /*RECIPE_POSTS CSS STYLES*/
@@ -219,11 +219,11 @@ list-style-type: square ;
   object-fit: cover;
 }
 
-.category__post-container header{
+.category__post-container header, .cat-search-header{
   margin-bottom: 20px;
 }
 
-.category__post-container header h2{
+.category__post-container header h2, .cat-search-header h2{
   margin-bottom: 10px;
 }
 

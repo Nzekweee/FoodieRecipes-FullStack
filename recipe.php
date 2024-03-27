@@ -96,7 +96,7 @@
                            <a href="<?= ROOT_URL ?>recipe-post.php?id=<?=$recipe['id'] ?>" class="view-recipe">View Recipe</a>
                         </div>
                       <?php } }?>
-                </section>;
+                </section>
 
 
             <div class="view-more-recipe-btn flex-row div-center"><a href="<?= ROOT_URL ?>/category-post.php?id=<?=$category['id'] ?>">View More Recipes</a></div>

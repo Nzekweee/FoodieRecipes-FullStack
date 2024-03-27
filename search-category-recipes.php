@@ -29,7 +29,12 @@ if(isset($_GET['search']) && isset($_GET['submit'])){
     <section class='category__image-header'>
          <img src="<?= ROOT_URL . 'assets/' . $category['cat_img']?>" alt="cat_img">
       </section>
+
      <section class="container">
+           <header class="cat-search-header">
+               <h2><?=$category['cat_name']?></h2>
+                <p><?=$category['cat_desc'] ?></p>
+           </header>
             <section class="search__container-top flex-row space-between">
                 <!-- searchbar -->
                 <form class="search-container" action="<?= ROOT_URL ?>search-category-recipes.php" method="GET">

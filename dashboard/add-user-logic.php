@@ -43,11 +43,9 @@ if(isset($_POST['submit'])){
             $avatar_destination_path = '../assets/' . $avatar_name;
 
             //file should not be more than 2mb
-            if($avatar['size'] < 2000000){
-                move_uploaded_file($avatar_temp_name, $avatar_destination_path);
-            } else{
-                $_SESSION['add-user'] = "File size too big, file should be less than 2mb";
-            }
+            if($avatar['size'] > 2000000){
+              $_SESSION['add-user'] = "File size too big, file should be less than 2mb";
+            } 
         }
     }
   }
@@ -67,6 +65,7 @@ if(isset($_POST['submit'])){
         //redirect 
         $_SESSION['add-user-success'] = "New user $fullname Added sucessfully ";
         header('location: '. ROOT_URL . 'dashboard/manage-user.php');
+        move_uploaded_file($avatar_temp_name, $avatar_destination_path);
         die();
     }
   }

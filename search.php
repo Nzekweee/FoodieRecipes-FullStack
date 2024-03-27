@@ -19,10 +19,6 @@ if(isset($_GET['search']) && isset($_GET['submit'])){
 
 
      <section class="container">
-             <header>
-                   <h2><?=$category['cat_name']?></h2>
-                  <p><?=$category['cat_desc'] ?></p>
-              </header>
             <section class="search__container-top flex-row space-between">
                 <!-- searchbar -->
                 <form class="search-container" action="<?= ROOT_URL ?>search.php" method="GET">
