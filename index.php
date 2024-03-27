@@ -31,9 +31,11 @@ $recipes_result = mysqli_query($connection, $recipes_query)
          <section class="flex-row space-between cat-items ">
          <?php while($category = mysqli_fetch_assoc($categories)) : ?>
             <div class="flex-column div-center cat-item">
-                <div>
-                    <img src="<?= ROOT_URL . 'assets/' . $category['cat_img']?>" alt="cat-img">
-                </div>
+                <a href="<?= ROOT_URL ?>category-post.php?id=<?=$category['id'] ?>">
+                      <div>
+                          <img src="<?= ROOT_URL . 'assets/' . $category['cat_img']?>" alt="cat-img">
+                      </div>
+               </a>
                 <span><?=$category['cat_name'] ?></span>
             </div>
             <?php endwhile ?>
