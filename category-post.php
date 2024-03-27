@@ -7,6 +7,7 @@
           $result = mysqli_query($connection, $query);
           if(mysqli_num_rows($result) == 1){
             $category = mysqli_fetch_assoc($result);
+            $category_id = $category['id'];
           }
         } 
         else{
@@ -27,17 +28,14 @@
               </header>
             <section class="search__container-top flex-row space-between">
                 <!-- searchbar -->
-                <div class="search-container">
-                 <input type="text" id="searchInput" placeholder="Search Recipes...">
-                 <button id="searchButton"><i class="fas fa-search"></i></button>
-                 <div id="searchDropdown" class="dropdown-content">
-                   <!-- Dropdown content will be populated dynamically -->
-                 </div>
-                 </div>   
+                <form class="search-container" action="<?= ROOT_URL ?>search-category-recipes.php" method="GET">
+                      <input type="hidden" name="category_id" value="<?=$category_id ?>">
+                      <input type="text" name="search" id="searchInput" placeholder="Search Recipes...">
+                      <button id="searchButton" type="submit" name="submit"><i class="fas fa-search"></i></button>
+                </form>  
                </section>
               <main class="recipe-categories-display recipe-details-section category__recipes">
                       <?php 
-                          $category_id = $category['id'];
                           $recipes_query = "SELECT * FROM recipes WHERE category_id = $category_id ";
                           $recipes_results = mysqli_query($connection, $recipes_query);
                           if(mysqli_num_rows($recipes_results) < 1) { ?>

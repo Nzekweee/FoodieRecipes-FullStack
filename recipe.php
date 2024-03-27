@@ -11,9 +11,9 @@
      <section class="container">
             <section class="search__container-top flex-row space-between">
                 <!-- searchbar -->
-                <form class="search-container">
-                      <input type="text" id="searchInput" placeholder="Search Recipes...">
-                      <button id="searchButton"><i class="fas fa-search"></i></button>
+                <form class="search-container" action="<?= ROOT_URL ?>search.php" method="GET">
+                      <input type="text" name="search" id="searchInput" placeholder="Search Recipes...">
+                      <button id="searchButton" type="submit" name="submit"><i class="fas fa-search"></i></button>
                 </form>   
                 <!-- filters Activator  -->
                 <div class="view-filters cursor-pointer flex-row div-center">
@@ -80,6 +80,18 @@
                                <img src="assets/ForkKnife.svg" alt="timer">
                                <span class="recipe-category"><?= $author['username']?></span>
                              </div>
+                           </div>
+                           <div class="flex-row">
+                           <?php
+                           $star_ratings = ceil($recipe['average_rating']);
+                            for ($i = 1; $i <= 5; $i++) {
+                              if ($i <= $star_ratings) {
+                                  echo '<i class="fa-solid fa-star" style="color: #a1c4fd"></i>'; // Filled star
+                              } else {
+                                  echo '<i class="fa-regular fa-star " style="color: #a1c4fd"></i>'; // Unfilled star
+                              }
+                           }
+                          ?>
                            </div>
                            <a href="<?= ROOT_URL ?>recipe-post.php?id=<?=$recipe['id'] ?>" class="view-recipe">View Recipe</a>
                         </div>

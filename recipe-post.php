@@ -48,7 +48,7 @@
                     </div>
                     <div class="flex-column">
                         <span class="det-title profile-name"><?=$recipe['username'] ?></span>
-                        <span class="cont__text"><?=$recipe['time_date'] ?></span>
+                        <span class="cont__text"><?= date("M d, Y", strtotime($recipe['time_date'])) ?></span>
                     </div>
                 </div>
                 <div class="line-divider"></div>

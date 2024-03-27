@@ -3,6 +3,10 @@ include 'partials/header.php' ;
 
 $query = "SELECT * FROM categories LIMIT 6";
 $categories = mysqli_query($connection,$query);
+
+$recipes_query = "SELECT * FROM recipes ORDER BY average_rating DESC LIMIT 6";
+$recipes_result = mysqli_query($connection, $recipes_query)
+
 ?>
      <!--Header -->
      <header class="container header__container flex-row space-between">
@@ -41,114 +45,43 @@ $categories = mysqli_query($connection,$query);
             <h2>Trending Recipes</h2>
             <p class="cont__text">Mouth savouring recipes that changed the game in the kitchen!</p>
             <section class="trending__recipes space-between">
-                 <div class="trending__recipe flex-column">
-                    <div class="recipe_like  flex-row div-center recipe_like-clicked" > <i class="fa-solid fa-heart"></i></div>
-                     <div class="trending__recipe-imagecont">
-                        <img src="assets/recipe1.jpg" alt="recipe-img">
-                     </div>
-                     <span class="recipe-title">Chocoloate Delight flambe</span>
-                     <div class="flex-row  recipe-details">
-                           <div class="flex-row div-center ">
-                               <img src="assets/Timer.svg" alt="timer">
-                               <span class="recipe-time">30 mins</span>
+            <?php while ($recipe = mysqli_fetch_assoc($recipes_result)) {
+                            $author_id = $recipe['author_id'];
+                            $author_query = "SELECT username FROM user WHERE id = $author_id ";
+                            $author_result = mysqli_query($connection, $author_query);
+                            $author = mysqli_fetch_assoc($author_result);
+            ?>
+                        <div class="trending__recipe flex-column">
+                           <div class="recipe_like  flex-row div-center recipe_like-clicked"><i class="fa-solid fa-heart recipe-heart" ></i></div>
+                           <div class="trending__recipe-imagecont">
+                             <img src="<?= ROOT_URL . 'assets/' . $recipe['thumbnail']?>" alt="recipe-img">
                            </div>
-                           <div class="flex-row div-center ">
-                            <img src="assets/ForkKnife.svg" alt="timer">
-                            <span class="recipe-category">Desserts</span>
-                        </div>
-                     </div>
-                     <a href="#" class="view-recipe">View Recipe</a>
-                 </div>
-                 <div class="trending__recipe flex-column">
-                    <div class="recipe_like  flex-row div-center"> <i class="fa-solid fa-heart"></i></div>
-                     <div class="trending__recipe-imagecont">
-                        <img src="assets/recipe2.jpg" alt="recipe-img">
-                     </div>
-                     <span class="recipe-title">Yummy chocolate banana smoothie</span>
-                     <div class="flex-row  recipe-details">
-                           <div class="flex-row div-center ">
+                           <span class="recipe-title"><?= $recipe['title'] ?></span>
+                           <div class="flex-row recipe-details">
+                             <div class="flex-row div-center">
                                <img src="assets/Timer.svg" alt="timer">
-                               <span class="recipe-time">30 mins</span>
+                               <span class="recipe-time"><?= $recipe['cook_time'] ?> mins</span>
+                             </div>
+                             <div class="flex-row div-center">
+                               <img src="assets/ForkKnife.svg" alt="timer">
+                               <span class="recipe-category"><?= $author['username']?></span>
+                             </div>
                            </div>
-                           <div class="flex-row div-center ">
-                            <img src="assets/ForkKnife.svg" alt="timer">
-                            <span class="recipe-category">Smoothies</span>
-                        </div>
-                     </div>
-                     <a href="#" class="view-recipe">View Recipe</a>
-                 </div>
-                 <div class="trending__recipe flex-column">
-                    <div class="recipe_like  flex-row div-center"> <i class="fa-solid fa-heart"></i></div>
-                     <div class="trending__recipe-imagecont">
-                        <img src="assets/recipe3.jpg" alt="recipe-img">
-                     </div>
-                     <span class="recipe-title">Fresh and Healthy Fruity salad</span>
-                     <div class="flex-row  recipe-details">
-                           <div class="flex-row div-center ">
-                               <img src="assets/Timer.svg" alt="timer">
-                               <span class="recipe-time">30 mins</span>
+                           <div class="flex-row">
+                           <?php
+                        $star_ratings = ceil($recipe['average_rating']);
+                          for ($i = 1; $i <= 5; $i++) {
+                              if ($i <= $star_ratings) {
+                                  echo '<i class="fa-solid fa-star" style="color: #a1c4fd"></i>'; // Filled star
+                              } else {
+                                  echo '<i class="fa-regular fa-star " style="color: #a1c4fd"></i>'; // Unfilled star
+                              }
+                           }
+                          ?>
                            </div>
-                           <div class="flex-row div-center ">
-                            <img src="assets/ForkKnife.svg" alt="timer">
-                            <span class="recipe-category">Vegan</span>
+                           <a href="<?= ROOT_URL ?>recipe-post.php?id=<?=$recipe['id'] ?>" class="view-recipe">View Recipe</a>
                         </div>
-                     </div>
-                     <a href="#" class="view-recipe">View Recipe</a>
-                 </div>
-                 <div class="trending__recipe flex-column">
-                    <div class="recipe_like  flex-row div-center"> <i class="fa-solid fa-heart"></i></div>
-                     <div class="trending__recipe-imagecont">
-                        <img src="assets/recipe4.jpg" alt="recipe-img">
-                     </div>
-                     <span class="recipe-title">Creamy vegan pasta delight</span>
-                     <div class="flex-row  recipe-details">
-                           <div class="flex-row div-center ">
-                               <img src="assets/Timer.svg" alt="timer">
-                               <span class="recipe-time">30 mins</span>
-                           </div>
-                           <div class="flex-row div-center ">
-                            <img src="assets/ForkKnife.svg" alt="timer">
-                            <span class="recipe-category">Vegan</span>
-                        </div>
-                     </div>
-                     <a href="#" class="view-recipe">View Recipe</a>
-                 </div>
-                 <div class="trending__recipe flex-column">
-                    <div class="recipe_like  flex-row div-center"> <i class="fa-solid fa-heart"></i></div>
-                     <div class="trending__recipe-imagecont">
-                        <img src="assets/recipe5.jpg" alt="recipe-img">
-                     </div>
-                     <span class="recipe-title">Pesto pasta</span>
-                     <div class="flex-row  recipe-details">
-                           <div class="flex-row div-center ">
-                               <img src="assets/Timer.svg" alt="timer">
-                               <span class="recipe-time">30 mins</span>
-                           </div>
-                           <div class="flex-row div-center ">
-                            <img src="assets/ForkKnife.svg" alt="timer">
-                            <span class="recipe-category">pasta</span>
-                        </div>
-                     </div>
-                     <a href="#" class="view-recipe">View Recipe</a>
-                 </div>
-                 <div class="trending__recipe flex-column">
-                    <div class="recipe_like  flex-row div-center"> <i class="fa-solid fa-heart"></i></div>
-                     <div class="trending__recipe-imagecont">
-                        <img src="assets/recipe6.jpeg" alt="recipe-img">
-                     </div>
-                     <span class="recipe-title">Bread and baked beans morning delight</span>
-                     <div class="flex-row  recipe-details">
-                           <div class="flex-row div-center ">
-                               <img src="assets/Timer.svg" alt="timer">
-                               <span class="recipe-time">30 mins</span>
-                           </div>
-                           <div class="flex-row div-center ">
-                            <img src="assets/ForkKnife.svg" alt="timer">
-                            <span class="recipe-category">Breakfast</span>
-                        </div>
-                     </div>
-                     <a href="#" class="view-recipe">View Recipe</a>
-                 </div>
+                      <?php }?>
             </section>
             <div class="view-more-recipe-btn flex-row div-center"><a href="recipe.php">View More Recipes</a></div>
          </section>
