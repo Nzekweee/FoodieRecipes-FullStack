@@ -1,5 +1,8 @@
 <?php
 include 'partials/header.php' ;
+
+$query = "SELECT * FROM categories LIMIT 6";
+$categories = mysqli_query($connection,$query);
 ?>
      <!--Header -->
      <header class="container header__container flex-row space-between">
@@ -22,42 +25,14 @@ include 'partials/header.php' ;
      <section class="container categories__container cont__section">
          <h2>Popular Categories</h2>
          <section class="flex-row space-between cat-items ">
+         <?php while($category = mysqli_fetch_assoc($categories)) : ?>
             <div class="flex-column div-center cat-item">
                 <div>
-                    <img src="assets/pasta.webp" alt="cat-img1">
+                    <img src="<?= ROOT_URL . 'assets/' . $category['cat_img']?>" alt="cat-img">
                 </div>
-                <span>Pasta</span>
+                <span><?=$category['cat_name'] ?></span>
             </div>
-            <div class="flex-column div-center cat-item">
-                <div>
-                    <img src="assets/pizza.jpg" alt="cat-img2">
-                </div>
-                <span>Pizza</span>
-            </div>
-            <div class="flex-column div-center cat-item">
-                <div>
-                    <img src="assets/vegan.jpg" alt="cat-img3">
-                </div>
-                <span>Vegan</span>
-            </div>
-            <div class="flex-column div-center cat-item">
-                <div>
-                    <img src="assets/desserts.jpg" alt="cat-img4">
-                </div>
-                <span>Desserts</span>
-            </div>
-            <div class="flex-column div-center cat-item">
-                <div>
-                    <img src="assets/smoothie.jpg" alt="cat-img5">
-                </div>
-                <span>Smoothies</span>
-            </div>
-            <div class="flex-column div-center cat-item">
-                <div>
-                    <img src="assets/breakfast.jpg" alt="cat-img6">
-                </div>
-                <span>Breakfast</span>
-            </div>
+            <?php endwhile ?>
          </section>
      </section>
          <!-- categories section  Ends-->

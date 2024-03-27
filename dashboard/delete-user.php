@@ -15,6 +15,16 @@ if(isset($_GET['id'])){
   }
  }
  //fetch all thumbnails of user and delete
+ $thumnails_query = "SELECT thumbnail FROM recipes WHERE author_id=$id";
+ $thumbnails_result = mysqli_query($connection, $thumnails_query);
+ if(mysqli_num_rows($thumbnails_result)>0){
+   while($thumbnail = mysqli_fetch_assoc($thumbnails_result)){
+      $thumbnail_path = '../assets/' . $thumbnail['thumbnail'];
+      if($thumbnail_path) {
+         unlink($thumbnail_path);
+       }
+   }
+ }
 
 
 

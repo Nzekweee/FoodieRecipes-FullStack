@@ -198,36 +198,6 @@ if (hidePasswordIcon) {
 
 
 // RECIPE PAGE
-//search functionality
-if(searchInput){
-  searchInput.addEventListener("input", function() {
-    // Simulate dropdown content dynamically based on search input
-    const searchValue = this.value.toLowerCase();
-    const dropdownItems = ["Result 1", "Result 2", "Result 3"]; // Example dropdown items
-    const filteredItems = dropdownItems.filter(item => item.toLowerCase().includes(searchValue));
-    
-    // Clear previous dropdown content
-    searchDropdown.innerHTML = "";
-    
-    // Populate dropdown with filtered items
-    filteredItems.forEach(item => {
-      const dropdownItem = document.createElement("a");
-      dropdownItem.textContent = item;
-      dropdownItem.href = "#"; // Add functionality if needed
-      searchDropdown.appendChild(dropdownItem);
-    });
-    
-    // Show dropdown
-    searchDropdown.style.display = filteredItems.length > 0 ? "block" : "none";
-  });
-  
-  // Hide dropdown when clicking outside of it
-  document.addEventListener("click", (event) => {
-    if (!event.target.matches("#searchInput")) {
-      searchDropdown.style.display = "none";
-    }
-  });
-}
 
 // filter functionality
 let viewFiltersBool = false
@@ -250,32 +220,47 @@ if(viewFilters){
 }
 
 
+//link and share
+
+const printRecipe = () => {
+  window.print(); 
+}
+
+const copyLink = () => {
+  var url = window.location.href;
+  if (!navigator.clipboard) {
+    alert('Browser does not support Clipboard API');
+    return;
+  }
+  navigator.clipboard.writeText(url)
+    .then(function() {
+      alert("Link copied to clipboard: " + url); 
+    })
+    .catch(function(err) {
+      console.error('Could not copy text: ', err);
+    });
+}
+
+const copyDiv = document.querySelector('.print-div'),
+shareDiv = document.querySelector('.share-div')
+
+copyDiv ? copyDiv.addEventListener('click', printRecipe) : null ;
+shareDiv ? shareDiv.addEventListener('click', copyLink) : null ;
+
+
+
+
 
 //custom drop down
 customDropdowns.forEach((customDropdown, index) => {
   const customDropdownBtn = customDropdown.querySelector(".custom-dropdown-toggle");
   const customDropdownContent = customDropdown.querySelector(".custom-dropdown-content");
 
-  // Populate dropdown with dynamic values
-  const dynamicValues = [`Option 1 - ${index + 1}`, `Option 2 - ${index + 1}`, `Option 3 - ${index + 1}`]; // Example dynamic values
-  dynamicValues.forEach(value => {
-    const dropdownItem = document.createElement("div");
-    dropdownItem.textContent = value;
-    dropdownItem.classList.add("dropdown-item");
-    dropdownItem.addEventListener("click", () => {
-      customDropdownBtn.textContent = value; // Update button text when option is clicked
-      closeDropdown(customDropdownContent); // Close dropdown after selecting an option
-    });
-    customDropdownContent.appendChild(dropdownItem);
-  });
-
-  // Show/hide dropdown when the button is clicked
   customDropdownBtn.addEventListener("click", () => {
     customDropdownContent.style.display = customDropdownContent.style.display === "block" ? "none" : "block";
     viewFiltersFunc(customDropdownBtn)
   });
 
-  // Close dropdown when clicking outside of it
   document.addEventListener("click", event => {
     if (!event.target.matches(".custom-dropdown-toggle") && !event.target.matches(".dropdown-item")) {
       closeDropdown(customDropdownContent);
@@ -288,74 +273,6 @@ function closeDropdown(customDropdownContent) {
 }
 
 
-//RECIPE CATEGORIES AND RECIPE DISPLAY
-import { recipeCategories } from "./constants.js";
-const generalCategoriesDisplay = document.querySelector('.recipe-categories-display');
-
-let categoryDivs = '';
-
-recipeCategories.forEach((category) => {
-  // Generate HTML for the category
-  let categoryDiv = `
-    <section class="recipe-category-display">
-      <div class="flex-row cat-item">
-        <div>
-          <img src="${category.categoryImage}" alt="${category.categoryName}">
-        </div>
-        <span>${category.categoryName}</span>
-      </div>
-      <section class="recipe-details-section category__recipes space-between"">
-  `;
-
-  category.recipeDetails.forEach((recipe, idx) => {
-    // Generate HTML for each recipe
-    let recipeDet = `
-      <div class="trending__recipe flex-column">
-        <div class="recipe_like  flex-row div-center recipe_like-clicked"><i class="fa-solid fa-heart recipe-heart" ></i></div>
-        <div class="trending__recipe-imagecont">
-          <img src="${recipe.recipeImg}" alt="recipe-img">
-        </div>
-        <span class="recipe-title">${recipe.recipetitle}</span>
-        <div class="flex-row recipe-details">
-          <div class="flex-row div-center">
-            <img src="assets/Timer.svg" alt="timer">
-            <span class="recipe-time">${recipe.recipeTime}</span>
-          </div>
-          <div class="flex-row div-center">
-            <img src="assets/ForkKnife.svg" alt="timer">
-            <span class="recipe-category">${recipe.category}</span>
-          </div>
-        </div>
-        <a href="${recipe.recipeLink}" class="view-recipe">View Recipe</a>
-      </div>
-    `;
- 
-    categoryDiv += recipeDet;
-  });
-  categoryDiv += `</section>`;
-  categoryDiv += `<div class="view-more-recipe-btn flex-row div-center"><a href="category-post.html">View More Recipes</a></div>`;
-  categoryDiv += `</section>`;
-  categoryDivs += categoryDiv;
-
-});
-
-
-if(generalCategoriesDisplay){
-  generalCategoriesDisplay.innerHTML = categoryDivs;
-}
-
-document.addEventListener('click', function(event) {
-  if (event.target.matches('.recipe_like')) {
-    const likeHeart = event.target.children[0]; 
-    let likeBool = likeHeart.style.color === 'rgb(255, 99, 99)'; 
-
-    likeHeart.style.color = likeBool ? '#DBE2E5' : '#FF6363'; 
-    // Perform additional actions based on like state
-    // For example, update count or send a request to the server
-  }
-});
-
-
 
 // rating system
 const rateRecipeBtn = document.querySelector('.rate-recipe-btn');
@@ -364,37 +281,6 @@ const ratingContainer = document.querySelector('.rating-container');
 if(rateRecipeBtn){
   // Show rating container on button click
 rateRecipeBtn.addEventListener('click', () => {
-  ratingContainer.style.display = 'block';
-});
+  ratingContainer.style.display = ratingContainer.style.display ===  'block'? 'none' : 'block' ;
+}); }
 
-// Create stars
-for (let i = 1; i <= 5; i++) {
-  const star = document.createElement('span');
-  star.classList.add('star', 'fa', 'fa-star', 'fa-2x');
-  star.setAttribute('data-rating', i); // Set data attribute for rating value
-  ratingContainer.appendChild(star);
-}
-
-// Rate recipe function using event delegation
-ratingContainer.addEventListener('click', (event) => {
-  const clickedStar = event.target;
-  if (clickedStar.classList.contains('star')) {
-    const rating = parseInt(clickedStar.getAttribute('data-rating'));
-    
-    // Fill stars up to the clicked star
-    const stars = ratingContainer.querySelectorAll('.star');
-    stars.forEach((star, index) => {
-      if (index < rating) {
-        star.classList.add('fa-solid');
-      } else {
-        star.classList.remove('fa-solid');
-      }
-    });
-    
-    // You can also return the rating or perform further actions with it
-    return rating;
-  }
-});
-
-
-}

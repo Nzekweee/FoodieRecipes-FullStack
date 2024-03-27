@@ -5,6 +5,10 @@ if(isset($_GET['id'])){
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
 
     //update category_id of posts that belong to this category to id of uncatgorized category
+    $update_query = "UPDATE recipes SET category_id=26 WHERE category_id=$id";
+    $update_result = mysqli_query($connection, $update_query);
+    if(!mysqli_errno($connection)){
+            //delete category
     $query = "SELECT * FROM categories WHERE id=$id";
     $result = mysqli_query($connection, $query);
     $category = mysqli_fetch_assoc($result);
@@ -26,6 +30,9 @@ if(isset($_GET['id'])){
     $_SESSION['delete-category-success'] = "'{$category['cat_name']}' Deleted Successfully";
  }
   } 
+    }
+    
+
 
   header('location:' . ROOT_URL . 'dashboard/manage-categories.php');
   die();

@@ -110,6 +110,10 @@ margin-bottom: 40px;
 }
 
 
+.recipe-details-section{
+  gap: 50px;
+}
+
 /*RECIPE_POSTS CSS STYLES*/
 .recipe__post-container{
 margin-top: 50px;
@@ -193,22 +197,66 @@ list-style-type: square ;
   /* list-style-type: square; */
 }
 
-.rate-recipe-btn{
-  margin: 2rem 0;
+.rate-recipe-btn, .rate-btn{
+  margin: 10px 0;
   font-weight: bold;
   font-size: 18px;
 }
 
 .rating-container {
-  display: none; /* Initially hide the rating container */
+  display: none;
 }
 
-/* Style for stars */
-.star {
-  font-size: 24px;
-  color: #ccc;
-  cursor: pointer;
+
+/*CATEGORY POST STYLING*/
+.category__image-header{
+  height: 300px;
+  background: var(--sky);
+  margin-bottom: 50px;
 }
+
+.category__image-header img{
+  object-fit: cover;
+}
+
+.category__post-container header{
+  margin-bottom: 20px;
+}
+
+.category__post-container header h2{
+  margin-bottom: 10px;
+}
+
+.empty-category p{
+   font-size: 18px;
+   font-weight: 600;
+  color: #a1c4fd
+  }
+
+
+  .input-checkbox {  
+    background-color: transparent;
+  }
+  
+  .label-checkbox  i{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    color: #c2e9fb;
+    font-size: 22px;
+  }
+  
+
+  
+  .input-checkbox:checked + .label-checkbox i {
+    color: #a1c4fd;
+  }
+
+  .rate-btn{
+    margin: 20px 0;
+    width: 100px;
+  }
+
 
 
 
