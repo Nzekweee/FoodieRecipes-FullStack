@@ -1,0 +1,8 @@
+{
+    "name": "yourusername/your-project-name",
+    "description": "This project is to show different food recipes",
+    "require": {
+        "php": "^8.2.12",
+        "monolog/monolog": "^2.0"
+    }
+}
