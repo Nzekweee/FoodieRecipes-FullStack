@@ -1,5 +1,5 @@
 {
-    "name": "nzekweee/FoodieRecipes-FullStack",
+    "name": "nzekweee/foodierecipes-fullstack",
     "description": "This project is to show different food recipes",
     "require": {
         "php": "^8.2.12",
