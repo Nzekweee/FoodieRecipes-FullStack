@@ -1,8 +1,9 @@
 {
     "name": "nzekweee/foodierecipes-fullstack",
     "description": "This project is to show different food recipes",
+    "version": "1.0.0",
     "require": {
-        "php": "^8.2.12",
+        "php": "^8.0",
         "monolog/monolog": "^2.0"
     }
 }
