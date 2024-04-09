@@ -8,4 +8,3 @@ define('DB_PASS', 'bUTMLQCl1T');
 define('DB_NAME', 'if0_36333923_foodierecipe');
 
 
-///please replace the config/constants.php file with this  both in the root directory and dashboard/config/constants.php folder also remove the comments ejor 
