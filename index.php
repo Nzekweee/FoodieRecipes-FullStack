@@ -52,6 +52,21 @@ $recipes_result = mysqli_query($connection, $recipes_query)
                             $author_query = "SELECT username FROM user WHERE id = $author_id ";
                             $author_result = mysqli_query($connection, $author_query);
                             $author = mysqli_fetch_assoc($author_result);
+
+
+                            $recipe_id = $recipe['id'];
+                            $ratings_query = "SELECT SUM(rating) as total_rating, COUNT(*) as num_ratings FROM ratings WHERE recipe_id = $recipe_id";
+                            $ratings_result = mysqli_query($connection, $ratings_query);
+                            
+                            if ($row = mysqli_fetch_assoc($ratings_result)) {
+                                if ($row["num_ratings"] > 0) {
+                                    $average_rating = ceil($row["total_rating"] / $row["num_ratings"]);
+                                } else {
+                                    $average_rating = 0; 
+                                }
+                            } else {
+                                $average_rating = 0; 
+                            }
             ?>
                         <div class="trending__recipe flex-column">
                            <div class="recipe_like  flex-row div-center recipe_like-clicked"><i class="fa-solid fa-heart recipe-heart" ></i></div>
@@ -71,9 +86,8 @@ $recipes_result = mysqli_query($connection, $recipes_query)
                            </div>
                            <div class="flex-row">
                            <?php
-                        $star_ratings = ceil($recipe['average_rating']);
                           for ($i = 1; $i <= 5; $i++) {
-                              if ($i <= $star_ratings) {
+                              if ($i <= $average_rating) {
                                   echo '<i class="fa-solid fa-star" style="color: #a1c4fd"></i>'; // Filled star
                               } else {
                                   echo '<i class="fa-regular fa-star " style="color: #a1c4fd"></i>'; // Unfilled star
