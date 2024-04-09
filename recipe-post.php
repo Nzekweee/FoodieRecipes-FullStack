@@ -13,16 +13,19 @@
                 $directions_query = "SELECT * FROM directions WHERE recipe_id = $recipe_id";
                 $directions_query_result = mysqli_query($connection, $directions_query);
 
-                //ratings
-                // $ratings_query = "SELECT SUM(rating) as total_rating, COUNT(*) as num_ratings FROM ratings WHERE recipe_id = $recipe_id";
-                // $ratings_result = mysqli_query($connection, $ratings_query);
+                // ratings
+                $ratings_query = "SELECT SUM(rating) as total_rating, COUNT(*) as num_ratings FROM ratings WHERE recipe_id = $recipe_id";
+                $ratings_result = mysqli_query($connection, $ratings_query);
                 
-                // if ($row = mysqli_fetch_assoc($ratings_result)) {
-                //     $average_rating = ceil($row["total_rating"] / $row["num_ratings"]);
-
-                // } else {
-                //     $average_rating = 0;
-                // } 
+                if ($row = mysqli_fetch_assoc($ratings_result)) {
+                    if ($row["num_ratings"] > 0) {
+                        $average_rating = ceil($row["total_rating"] / $row["num_ratings"]);
+                    } else {
+                        $average_rating = 0; 
+                    }
+                } else {
+                    $average_rating = 0; 
+                }
         
                 $recipe_avg_rating = $recipe['average_rating'];
                 $star_ratings = ceil($recipe_avg_rating);
@@ -107,7 +110,7 @@
             <?php
                   // Loop to generate stars
                   for ($i = 1; $i <= 5; $i++) {
-                      if ($i <= $star_ratings) {
+                      if ($i <= $average_rating) {
                           echo '<i class="fa-solid fa-star"></i>'; // Filled star
                       } else {
                           echo '<i class="fa-regular fa-star"></i>'; // Unfilled star
